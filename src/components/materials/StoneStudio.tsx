@@ -69,21 +69,37 @@ function Camera({ view }: { view: StoneView }) {
 export default function StoneStudio({
   material,
   onReady,
+  onLost,
+  lite = false,
   view,
 }: {
   material: Material;
   onReady: () => void;
+  // Older mobile GPUs drop the WebGL context under memory pressure; the photo takes over.
+  onLost: () => void;
+  // Weaker devices render fewer pixels and a smaller shadow map.
+  lite?: boolean;
   view: StoneView;
 }) {
   return (
     <Canvas
       frameloop="demand"
-      dpr={[1, 1.75]}
+      dpr={[1, lite ? 1.25 : 1.75]}
       camera={{ position: [0, 0.35, 5.1], fov: 35 }}
       gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
       role="img"
       aria-label={`Objeto tridimensional com textura de ${material.name}`}
       style={{ position: "absolute", inset: 0, touchAction: "pan-y" }}
+      onCreated={({ gl }) => {
+        gl.domElement.addEventListener(
+          "webglcontextlost",
+          (event) => {
+            event.preventDefault();
+            onLost();
+          },
+          { once: true },
+        );
+      }}
     >
       <ambientLight intensity={0.45} />
       <directionalLight position={[3, 5, 5]} intensity={1.8} />
@@ -116,7 +132,7 @@ export default function StoneStudio({
           scale={9}
           blur={2.8}
           far={4}
-          resolution={512}
+          resolution={lite ? 256 : 512}
           frames={1}
         />
       </Suspense>

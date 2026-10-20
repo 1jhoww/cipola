@@ -1,14 +1,5 @@
-"use client";
-import { motion, useReducedMotion } from "motion/react";
+// A short fade on every navigation. Plain CSS (see .page-fade in globals.css),
+// so pages that need no animation library do not download one for this.
 export default function Template({ children }: { children: React.ReactNode }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0.7 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.25 }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="page-fade">{children}</div>;
 }

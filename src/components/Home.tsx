@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { prefersLightMotion } from "@/lib/device";
 import { materials, projects } from "@/lib/data";
 import { site, whatsappLink } from "@/lib/site";
 import {
@@ -188,7 +189,8 @@ export function Home() {
               { autoAlpha: 0, y: 24, duration: 0.9, stagger: 0.12 },
               0.9,
             );
-          gsap.to("[data-hero-image]", {
+          // Scroll-linked parallax is skipped on low-memory devices and data saver.
+          if (!prefersLightMotion()) gsap.to("[data-hero-image]", {
             yPercent: 16,
             ease: "none",
             scrollTrigger: {

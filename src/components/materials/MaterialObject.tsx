@@ -4,14 +4,18 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type KeyboardEvent,
 } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import type { Material } from "@/lib/data";
+import { deviceTier } from "@/lib/device";
 import s from "./material.module.css";
-// Imported statically (not lazily) so the 3D code downloads with the page itself,
-// in parallel with the HTML, and the slab is live as soon as the page hydrates.
-import StoneStudio from "./StoneStudio";
+// three.js (about 260 KB compressed) downloads only on devices that will run it;
+// everyone else keeps the photo of the slab, which is already on screen.
+const StoneStudio = dynamic(() => import("./StoneStudio"), { ssr: false });
+const noSubscribe = () => () => {};
 class ObjectBoundary extends Component<
   { children: React.ReactNode; fallback: React.ReactNode },
   { failed: boolean }
@@ -30,6 +34,11 @@ const clampZoom = (value: number) => Math.min(1.8, Math.max(0.75, value));
 export function MaterialObject({ material }: { material: Material }) {
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [optIn, setOptIn] = useState(false);
+  // null while rendering on the server, then the tier of this device.
+  const tier = useSyncExternalStore(noSubscribe, deviceTier, () => null);
+  const show3d = !failed && (tier === "full" || (tier === "lite" && optIn));
+  const staticView = tier === "none" || failed;
   // `reset` changes on every "Restaurar" so the camera returns even when angle and zoom are already at rest.
   const [view, setView] = useState({ angle: 0, zoom: 1, reset: 0 });
   const [zoomTip, setZoomTip] = useState(false);
@@ -93,7 +102,7 @@ export function MaterialObject({ material }: { material: Material }) {
         tabIndex={0}
         role="region"
         aria-label={`Pedra ${material.name}. Gire com as setas; use mais e menos para aproximar; Home restaura a vista.`}
-        aria-describedby="stone-instructions"
+        aria-describedby={show3d ? "stone-instructions" : undefined}
         onKeyDown={keyboard}
       >
         <ObjectBoundary
@@ -101,26 +110,44 @@ export function MaterialObject({ material }: { material: Material }) {
             <>
               {poster}
               <FallbackFlag onFail={() => setFailed(true)} />
-              <p className={s.fallbackNote}>
-                Exibindo a amostra estática neste dispositivo.
-              </p>
             </>
           }
         >
           {poster}
-          <div className={s.studio} data-ready={ready}>
-            <StoneStudio
-              material={material}
-              onReady={() => setReady(true)}
-              view={view}
-            />
-          </div>
+          {show3d && (
+            <div className={s.studio} data-ready={ready}>
+              <StoneStudio
+                material={material}
+                onReady={() => setReady(true)}
+                onLost={() => {
+                  setReady(false);
+                  setFailed(true);
+                }}
+                lite={tier === "lite"}
+                view={view}
+              />
+            </div>
+          )}
         </ObjectBoundary>
+        {staticView && tier !== null && (
+          <p className={s.fallbackNote}>
+            Exibindo a amostra estática neste dispositivo.
+          </p>
+        )}
+        {tier === "lite" && !optIn && !failed && (
+          <button
+            type="button"
+            className={s.load3d}
+            onClick={() => setOptIn(true)}
+          >
+            Ver a pedra em 3D
+          </button>
+        )}
         <p className={s.zoomTip} data-visible={zoomTip} aria-hidden="true">
           Use Ctrl + rolagem para aproximar
         </p>
       </div>
-      {!failed && (
+      {show3d && (
         <div className={s.objectBar}>
           <p id="stone-instructions" className={s.objectHint}>
             {ready ? (

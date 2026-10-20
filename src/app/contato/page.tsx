@@ -59,7 +59,7 @@ export default async function Page({
           </div>
           <div className={s.asideImage}>
             <Image
-              src="/images/banheiro.png"
+              src="/images/banheiro.jpg"
               alt="Estudo ilustrativo de bancada de pedra"
               fill
               sizes="(max-width: 700px) 90vw, 35vw"

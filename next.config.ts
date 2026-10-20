@@ -4,7 +4,11 @@ const config: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || ".next",
   turbopack: { root: process.cwd() },
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Optimized variants of photos that rarely change stay cached for 31 days.
+    minimumCacheTTL: 2678400,
+  },
   async redirects() {
     // The about page moved from /a-cipola to /sobre.
     return [
@@ -14,7 +18,16 @@ const config: NextConfig = {
     ];
   },
   async headers() {
+    // Files in public/ have no content hash in their names, so a week of cache
+    // plus a month of background revalidation, rather than immutable.
+    const staticCache = {
+      key: "Cache-Control",
+      value: "public, max-age=604800, stale-while-revalidate=2592000",
+    };
     return [
+      { source: "/images/:path*", headers: [staticCache] },
+      { source: "/textures/:path*", headers: [staticCache] },
+      { source: "/brand/:path*", headers: [staticCache] },
       {
         source: "/(.*)",
         headers: [

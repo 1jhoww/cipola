@@ -8,11 +8,11 @@ Logo atual: utilizada como referência para o símbolo vetorial de quatro losang
 
 Ferramenta: Imagegen integrada. Os três resultados foram copiados para o projeto. Não representam obras reais da empresa.
 
-`public/images/cozinha.png`
+`public/images/cozinha.jpg` (JPEG de qualidade 84 a partir do PNG gerado)
 
 > Use case: photorealistic-natural. Asset type: wide cinematic hero photograph for Brazilian natural stone fabrication company Cipola. Generate one highly realistic architectural editorial photograph, landscape 3:2. An understated luxurious contemporary Brazilian kitchen, giant honed warm ivory quartzite monolithic waterfall island in the foreground center-right, clearly visible mineral veining in cream, taupe and amber; matching back counter backsplash. Dark walnut full-height cabinetry across left background, textured warm plaster, one dark bronze faucet, restrained branches in dark ceramic vase, two fine walnut stools. Large window at right overlooks tropical garden in soft late afternoon sunlight. Wide camera at countertop level showing the whole island, beautiful precise thick mitred stone edges, natural atmospheric shadows, tactile stone and wood. Left third of frame darker wood and negative space suitable for overlay headline. Warm restrained colors, editorial architectural magazine quality, realistic, tasteful, dramatic but not orange. No people, no text, no logo, no watermarks. Image is illustrative demonstration, not a photo of an actual completed company project.
 
-`public/images/banheiro.png`
+`public/images/banheiro.jpg` (JPEG de qualidade 84 a partir do PNG gerado)
 
 > Use case: photorealistic-natural. Asset type: editorial architectural demonstration image for natural stone company website. One landscape photo 3:2 of a quiet premium Brazilian bathroom. Sculptural floating rectangular double vanity made of warm light travertine, precisely cut monolithic stone integral basin, bronze wall mounted faucet, warm beige plaster walls, tall mirror and dark walnut door on left, single tiny branch in ceramic vase, daylight from large side window, warm nuanced shadows, foreground shows tactile honed stone textures and excellent edge fabrication. Architectural magazine photograph, realistic restrained natural materials, no people, no text, no logos.
 

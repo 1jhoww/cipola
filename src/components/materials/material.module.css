@@ -566,3 +566,24 @@
     padding-bottom: 50px;
   }
 }
+/* Devices that save data or have little memory get the photo first and
+   load the 3D slab only on request. */
+.load3d {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  padding: 11px 18px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.load3d:hover {
+  background: var(--ink);
+  color: var(--paper);
+}

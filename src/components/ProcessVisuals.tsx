@@ -153,7 +153,7 @@ export function InstalledVisual() {
   return (
     <Image
       className={s.installed}
-      src="/images/banheiro.png"
+      src="/images/banheiro.jpg"
       width={1536}
       height={1024}
       sizes="(max-width:900px) 90vw, 55vw"

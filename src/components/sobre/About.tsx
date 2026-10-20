@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { prefersLightMotion } from "@/lib/device";
 import { projects } from "@/lib/data";
 import { sobrePhotos as p } from "@/content/sobre-photos";
 import { Photo } from "./Photo";
@@ -33,6 +34,8 @@ export function About() {
             wide: boolean;
           };
           if (!motion) return;
+          // Low-memory devices and data saver keep the entrances, not the scroll-scrubbed effects.
+          const light = prefersLightMotion();
 
           // Page load: the two sentences rise, then the family photo opens.
           gsap
@@ -58,7 +61,7 @@ export function About() {
           // the text column to the whole width of the band while scrolling.
           const hero = document.querySelector<HTMLElement>("[data-hero]");
           const gutter = hero ? parseFloat(getComputedStyle(hero).paddingLeft) : 0;
-          if (!wide) gsap.fromTo(
+          if (!wide && !light) gsap.fromTo(
             "[data-hero-photo] [data-photo]",
             { clipPath: `inset(0px ${gutter}px 0px ${gutter}px)` },
             {
@@ -72,6 +75,19 @@ export function About() {
               },
             },
           );
+          if (light) {
+            gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
+              gsap.from(el, {
+                autoAlpha: 0,
+                y: 28,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 88%" },
+              });
+            });
+            return;
+          }
+
           // The headline drifts up a little slower than the page.
           gsap.to("[data-hero] h1", {
             yPercent: -12,

@@ -258,6 +258,14 @@ button {
     padding: 15px 20px;
   }
 }
+.page-fade {
+  animation: page-fade 0.25s ease-out;
+}
+@keyframes page-fade {
+  from {
+    opacity: 0.7;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

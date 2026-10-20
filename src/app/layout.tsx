@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/cozinha.png",
+        url: "/images/cozinha.jpg",
         width: 1536,
         height: 1024,
         alt: "Ambiente ilustrativo com ilha de pedra natural",
