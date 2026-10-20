@@ -44,15 +44,15 @@ export default async function Page({
             materiais, medidas e possibilidades.
           </p>
           <div className={s.asideLinks}>
-            {site.email && <a href={`mailto:${site.email}`}>{site.email} ↗</a>}
+            {site.email && <a href={`mailto:${site.email}`}>{site.email} ↗︎</a>}
             {site.whatsapp.map((w) => (
               <a key={w.number} href={whatsappLink(w.number)}>
-                WhatsApp {w.name} · {w.display} ↗
+                WhatsApp {w.name} · {w.display} ↗︎
               </a>
             ))}
             {site.address && (
               <a href={mapsLink(site.address)} target="_blank" rel="noopener noreferrer">
-                {site.address} ↗
+                {site.address} ↗︎
               </a>
             )}
             {site.serviceArea && <p>Atendimento: {site.serviceArea}</p>}

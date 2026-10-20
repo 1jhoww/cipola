@@ -181,7 +181,7 @@ export function QuoteForm({
         {primary.name}. É só conferir e tocar em enviar.
       </p>
       <button type="submit" className="button button-accent">
-        Enviar pelo WhatsApp <span aria-hidden="true">↗</span>
+        Enviar pelo WhatsApp <span aria-hidden="true">↗︎</span>
       </button>
       <div role="status" aria-live="polite">
         {sent && (
@@ -202,7 +202,7 @@ export function QuoteForm({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Abrir conversa com {primary.name} ↗
+                Abrir conversa com {primary.name} ↗︎
               </a>
               {others.map((w) => (
                 <a
@@ -212,7 +212,7 @@ export function QuoteForm({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Enviar também para {w.name} ↗
+                  Enviar também para {w.name} ↗︎
                 </a>
               ))}
             </div>

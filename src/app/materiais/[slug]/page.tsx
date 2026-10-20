@@ -64,7 +64,7 @@ export default async function Page({
           <h1>{material.name}</h1>
           <p>{material.description}</p>
           <WhatsAppQuote material={material.name} className="button button-vein">
-            Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗</span>
+            Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗︎</span>
           </WhatsAppQuote>
         </div>
         <MaterialObject key={material.slug} material={material} />
@@ -157,7 +157,7 @@ export default async function Page({
           Todos os materiais
         </Link>
         <WhatsAppQuote material={material.name} className="button button-vein">
-          Pedir orçamento de {material.name} <span aria-hidden="true">↗</span>
+          Pedir orçamento de {material.name} <span aria-hidden="true">↗︎</span>
         </WhatsAppQuote>
       </div>
     </>

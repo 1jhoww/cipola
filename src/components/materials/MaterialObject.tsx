@@ -12,8 +12,8 @@ import dynamic from "next/dynamic";
 import type { Material } from "@/lib/data";
 import { deviceTier } from "@/lib/device";
 import s from "./material.module.css";
-// three.js (about 260 KB compressed) downloads only on devices that will run it;
-// everyone else keeps the photo of the slab, which is already on screen.
+// three.js (about 260 KB compressed) downloads right after the page opens, only on
+// devices with WebGL; the photo of the slab holds its place meanwhile.
 const StoneStudio = dynamic(() => import("./StoneStudio"), { ssr: false });
 const noSubscribe = () => () => {};
 class ObjectBoundary extends Component<
@@ -34,10 +34,9 @@ const clampZoom = (value: number) => Math.min(1.8, Math.max(0.75, value));
 export function MaterialObject({ material }: { material: Material }) {
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
-  const [optIn, setOptIn] = useState(false);
   // null while rendering on the server, then the tier of this device.
   const tier = useSyncExternalStore(noSubscribe, deviceTier, () => null);
-  const show3d = !failed && (tier === "full" || (tier === "lite" && optIn));
+  const show3d = !failed && (tier === "full" || tier === "lite");
   const staticView = tier === "none" || failed;
   // `reset` changes on every "Restaurar" so the camera returns even when angle and zoom are already at rest.
   const [view, setView] = useState({ angle: 0, zoom: 1, reset: 0 });
@@ -134,15 +133,7 @@ export function MaterialObject({ material }: { material: Material }) {
             Exibindo a amostra estática neste dispositivo.
           </p>
         )}
-        {tier === "lite" && !optIn && !failed && (
-          <button
-            type="button"
-            className={s.load3d}
-            onClick={() => setOptIn(true)}
-          >
-            Ver a pedra em 3D
-          </button>
-        )}
+
         <p className={s.zoomTip} data-visible={zoomTip} aria-hidden="true">
           Use Ctrl + rolagem para aproximar
         </p>
@@ -152,7 +143,7 @@ export function MaterialObject({ material }: { material: Material }) {
           <p id="stone-instructions" className={s.objectHint}>
             {ready ? (
               <>
-                Arraste para girar. Use os botões
+                Arraste a pedra para girar. Use os botões
                 <span className={s.hintMouse}> ou Ctrl + rolagem</span> para
                 aproximar.
               </>

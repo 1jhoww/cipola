@@ -7,6 +7,7 @@ import {
   Lightformer,
   OrbitControls,
 } from "@react-three/drei";
+import { Vector2 } from "three";
 import type { Material } from "@/lib/data";
 import { StoneSurface } from "./StoneSurface";
 function Stone({
@@ -23,6 +24,55 @@ function Stone({
     </group>
   );
 }
+// On touch screens a drag that starts on the slab turns it in any direction;
+// one that starts on the empty stage around it scrolls the page as usual.
+function TouchGate() {
+  const { gl, camera, scene, raycaster } = useThree();
+  useEffect(() => {
+    const el = gl.domElement;
+    // A finger is wide: probe a small cross around the touch point.
+    const reach = 22;
+    const onStone = (touch: Touch) => {
+      const stone = scene.getObjectByName("stone");
+      if (!stone) return false;
+      const box = el.getBoundingClientRect();
+      const point = new Vector2();
+      return [[0, 0], [reach, 0], [-reach, 0], [0, reach], [0, -reach]].some(
+        ([dx, dy]) => {
+          point.set(
+            ((touch.clientX + dx - box.left) / box.width) * 2 - 1,
+            -((touch.clientY + dy - box.top) / box.height) * 2 + 1,
+          );
+          raycaster.setFromCamera(point, camera);
+          return raycaster.intersectObject(stone).length > 0;
+        },
+      );
+    };
+    let holding = false;
+    const start = (event: TouchEvent) => {
+      holding = event.touches.length === 1 && onStone(event.touches[0]);
+      if (holding) event.preventDefault();
+    };
+    const move = (event: TouchEvent) => {
+      if (holding) event.preventDefault();
+    };
+    const end = () => {
+      holding = false;
+    };
+    el.addEventListener("touchstart", start, { passive: false });
+    el.addEventListener("touchmove", move, { passive: false });
+    el.addEventListener("touchend", end);
+    el.addEventListener("touchcancel", end);
+    return () => {
+      el.removeEventListener("touchstart", start);
+      el.removeEventListener("touchmove", move);
+      el.removeEventListener("touchend", end);
+      el.removeEventListener("touchcancel", end);
+    };
+  }, [gl, camera, scene, raycaster]);
+  return null;
+}
+
 export type StoneView = { angle: number; zoom: number; reset: number };
 // Buttons and keys move the camera from wherever the visitor left it after dragging;
 // "Restaurar" (a new `reset`) returns it to the front view.
@@ -89,7 +139,7 @@ export default function StoneStudio({
       gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
       role="img"
       aria-label={`Objeto tridimensional com textura de ${material.name}`}
-      style={{ position: "absolute", inset: 0, touchAction: "pan-y" }}
+      style={{ position: "absolute", inset: 0 }}
       onCreated={({ gl }) => {
         gl.domElement.addEventListener(
           "webglcontextlost",
@@ -137,6 +187,7 @@ export default function StoneStudio({
         />
       </Suspense>
       <Camera view={view} />
+      <TouchGate />
     </Canvas>
   );
 }

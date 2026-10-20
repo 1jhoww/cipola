@@ -521,7 +521,7 @@ export function ContactBand() {
               <li key={c.href}>
                 <a href={c.href}>
                   {c.label}
-                  {c.external && <span aria-hidden="true"> ↗</span>}
+                  {c.external && <span aria-hidden="true"> ↗︎</span>}
                 </a>
               </li>
             ))}

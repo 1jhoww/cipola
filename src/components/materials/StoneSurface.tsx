@@ -87,7 +87,13 @@ export function StoneSurface({
     ? maps[material.maps.normal ? 2 : 1]
     : undefined;
   return (
-    <mesh position={position} geometry={geometry} castShadow receiveShadow>
+    <mesh
+      name="stone"
+      position={position}
+      geometry={geometry}
+      castShadow
+      receiveShadow
+    >
       <meshPhysicalMaterial
         map={maps[0]}
         normalMap={normal}

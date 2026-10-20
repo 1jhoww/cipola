@@ -23,12 +23,12 @@ export function Footer() {
           {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
           {site.whatsapp.map((w) => (
             <a key={w.number} href={whatsappLink(w.number)}>
-              WhatsApp {w.name} · {w.display} ↗
+              WhatsApp {w.name} · {w.display} ↗︎
             </a>
           ))}
           {site.address && (
             <a href={mapsLink(site.address)} target="_blank" rel="noopener noreferrer">
-              {site.address} ↗
+              {site.address} ↗︎
             </a>
           )}
           {site.serviceArea && <p>{site.serviceArea}</p>}

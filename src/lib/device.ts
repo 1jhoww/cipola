@@ -2,7 +2,7 @@
 //
 //   "full"   WebGL with hardware acceleration and no data or memory limits
 //   "lite"   WebGL works, but the device asked to save data, has little memory
-//            or renders WebGL in software: 3D waits for an explicit tap
+//            or renders WebGL in software: 3D still loads, with lighter rendering
 //   "none"   no WebGL at all: the static image is the only view
 export type Tier = "full" | "lite" | "none";
 

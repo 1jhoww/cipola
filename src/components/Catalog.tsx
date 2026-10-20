@@ -94,11 +94,11 @@ export function Catalog({ kind }: { kind: "materials" | "projects" }) {
                   fill
                   sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 30vw"
                 />
-                <span>CONHECER MATERIAL ↗</span>
+                <span>CONHECER MATERIAL ↗︎</span>
               </div>
               <div className={s.itemTitle}>
                 <h3>{item.name}</h3>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">↗︎</span>
               </div>
               <p>
                 {item.category} <span>{item.character}</span>

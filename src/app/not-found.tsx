@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1>Vamos por outro caminho.</h1>
       <p>Esta página não existe ou mudou de endereço.</p>
       <Link href="/materiais" className="button">
-        Explorar materiais <span>↗</span>
+        Explorar materiais <span>↗︎</span>
       </Link>
     </div>
   );

@@ -137,7 +137,7 @@ export function EnvironmentGallery({
                 acabamento e prazo para o seu projeto.
               </p>
               <WhatsAppQuote material={stone.name} className="button button-vein">
-                Pedir orçamento de {stone.name} <span aria-hidden="true">↗</span>
+                Pedir orçamento de {stone.name} <span aria-hidden="true">↗︎</span>
               </WhatsAppQuote>
             </div>
           </div>
@@ -146,7 +146,7 @@ export function EnvironmentGallery({
         <div className={s.environmentEmpty}>
           <p>As aplicações de {material.name} estão em preparação.</p>
           <WhatsAppQuote material={material.name} className="button button-vein">
-            Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗</span>
+            Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗︎</span>
           </WhatsAppQuote>
         </div>
       )}
