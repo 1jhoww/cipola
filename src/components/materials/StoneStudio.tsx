@@ -27,11 +27,11 @@ function Stone({
 // On touch screens a drag that starts on the slab turns it in any direction;
 // one that starts on the empty stage around it scrolls the page as usual.
 function TouchGate() {
-  const { gl, camera, scene, raycaster } = useThree();
+  const { gl, camera, scene, raycaster, controls } = useThree();
   useEffect(() => {
     const el = gl.domElement;
-    // A finger is wide: probe a small cross around the touch point.
-    const reach = 22;
+    // A fingertip is not a point: probe a small cross around the touch.
+    const reach = 8;
     const onStone = (touch: Touch) => {
       const stone = scene.getObjectByName("stone");
       if (!stone) return false;
@@ -48,16 +48,20 @@ function TouchGate() {
         },
       );
     };
+    const orbit = controls as unknown as { enabled: boolean } | null;
     let holding = false;
     const start = (event: TouchEvent) => {
       holding = event.touches.length === 1 && onStone(event.touches[0]);
       if (holding) event.preventDefault();
+      // Off the slab the finger belongs to the page: no turning, the browser scrolls.
+      if (orbit) orbit.enabled = holding;
     };
     const move = (event: TouchEvent) => {
       if (holding) event.preventDefault();
     };
     const end = () => {
       holding = false;
+      if (orbit) orbit.enabled = true;
     };
     el.addEventListener("touchstart", start, { passive: false });
     el.addEventListener("touchmove", move, { passive: false });
@@ -69,7 +73,7 @@ function TouchGate() {
       el.removeEventListener("touchend", end);
       el.removeEventListener("touchcancel", end);
     };
-  }, [gl, camera, scene, raycaster]);
+  }, [gl, camera, scene, raycaster, controls]);
   return null;
 }
 

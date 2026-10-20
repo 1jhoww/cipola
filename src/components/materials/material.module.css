@@ -57,8 +57,10 @@
 .studio > div {
   height: 100% !important;
 }
-/* OrbitControls sets touch-action: none on the canvas, which would trap page
-   scrolling; the browser keeps scrolling and TouchGate blocks it only on the slab. */
+/* OrbitControls sets touch-action: none on the 3D wrapper, which on phones makes
+   the whole stage swallow scrolling. The browser keeps scrolling; TouchGate in
+   StoneStudio blocks it only for a finger that starts on the slab. */
+.studio > div,
 .studio canvas {
   touch-action: auto !important;
 }
