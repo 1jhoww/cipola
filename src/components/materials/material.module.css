@@ -1,0 +1,568 @@
+.hero {
+  position: relative;
+  padding: 50px var(--gutter) 0;
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  align-items: center;
+  min-height: 660px;
+  gap: 20px;
+}
+.intro {
+  z-index: 1;
+  padding-bottom: 40px;
+}
+.intro > p:first-child {
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+.intro h1 {
+  font-size: clamp(50px, 5.8vw, 84px);
+  max-width: 650px;
+}
+.intro > p:not(:first-child) {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 26px 0;
+  max-width: 350px;
+}
+.intro > a {
+  margin-top: 6px;
+}
+.objectWrap {
+  position: relative;
+  align-self: stretch;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.object {
+  position: relative;
+  flex: 1;
+  min-height: 560px;
+  outline-offset: -4px;
+}
+/* Placeholder and 3D crossfade, so the static slab hands over without a jump. */
+.studio {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.studio[data-ready="true"] {
+  opacity: 1;
+}
+.poster[data-hidden="true"] {
+  opacity: 0;
+}
+.studio > div {
+  height: 100% !important;
+}
+.objectBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0 28px;
+}
+.objectHint {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+@media (hover: none) {
+  .hintMouse {
+    display: none;
+  }
+}
+.objectControls {
+  display: flex;
+  gap: 6px;
+}
+.objectControls button {
+  min-width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.objectControls button:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+.objectControls button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+.objectControls svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.objectRestore {
+  margin-left: 6px;
+}
+/* Shown briefly when a plain wheel passes over the stone, so visitors learn the zoom gesture. */
+.zoomTip {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 16px;
+  background: #17191acc;
+  color: var(--paper);
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.zoomTip[data-visible="true"] {
+  opacity: 1;
+}
+.poster {
+  position: absolute;
+  inset: 20% 12% 25%;
+  /* Roughly the 3D slab's first frame: same tilt, size and soft shadow. */
+  transform: perspective(1000px) rotateY(-16deg) rotateZ(-4deg);
+  box-shadow: 0 40px 40px -20px #17191a33;
+  transition: opacity 0.5s;
+}
+.poster img {
+  object-fit: cover;
+}
+.fallbackNote {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.technical {
+  padding: 20px var(--gutter) 40px;
+}
+.technical .sampleNote {
+  margin-top: 16px;
+}
+.caption {
+  font-size: 10px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.caption > a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.environments {
+  padding: 75px var(--gutter);
+  background: var(--paper-soft);
+}
+.environmentTitle {
+  font-size: clamp(35px, 4vw, 58px);
+  max-width: 14em;
+  margin-bottom: 35px;
+}
+.environmentFrame {
+  position: absolute;
+  inset: 0;
+}
+.environmentEmpty {
+  padding: 55px 0;
+  border-bottom: 1px solid var(--line);
+}
+.environmentEmpty p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.environmentImage {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--concreto);
+}
+.environmentImage img {
+  object-fit: cover;
+}
+.environmentImage > span {
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  left: 20px;
+  font-size: 12px;
+  padding: 6px 10px;
+  background: #e6e3dcdd;
+}
+/* Phones and tablets: controls stacked under the picture.
+   Grids with a 0 minimum keep the swatch row from widening the page. */
+.sceneControls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding-top: 20px;
+}
+/* Labels, notes and the quote block fill the desktop side panel only. */
+.controlLabel,
+.controlNote,
+.stoneMeta,
+.sceneQuote {
+  display: none;
+}
+.roomTabs {
+  display: flex;
+  gap: 28px;
+  padding: 4px;
+}
+.roomTabs button {
+  flex: none;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font-size: 15px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.roomTabs button:hover {
+  color: var(--ink);
+}
+.roomTabs button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.stonePicker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+.stoneName {
+  font-size: 15px;
+  font-weight: 600;
+}
+.swatches {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+}
+.swatches button {
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  outline: 1px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 0.2s;
+}
+.swatches img {
+  object-fit: cover;
+}
+.swatches button:hover {
+  outline-color: var(--concreto);
+}
+.swatches button[aria-pressed="true"] {
+  outline: 2px solid var(--ink);
+}
+.compareActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.backLink {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.backLink:hover {
+  color: var(--ink);
+}
+/* Desktop: a reasonably sized picture on the left, every choice visible on the right. */
+@media (min-width: 901px) {
+  .sceneLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+    gap: 56px;
+  }
+  .sceneControls {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding-top: 0;
+  }
+  .sceneControls > div {
+    min-width: 0;
+  }
+  .controlNote {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .stoneMeta {
+    display: block;
+    margin: -10px 0 14px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  /* Sits at the bottom of the panel, level with the foot of the picture. */
+  .sceneQuote {
+    display: block;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .sceneQuote p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 38ch;
+    margin-bottom: 18px;
+  }
+  .controlLabel {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .roomTabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0;
+  }
+  .roomTabs button {
+    padding: 13px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    text-align: left;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      color 0.2s;
+  }
+  .roomTabs button:hover {
+    border-color: var(--ink);
+  }
+  .roomTabs button[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .stonePicker {
+    gap: 0;
+  }
+  .stoneName {
+    font-size: var(--step-1);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 44px);
+    gap: 10px;
+    padding: 4px;
+  }
+  .swatches button {
+    width: 44px;
+    height: 44px;
+  }
+}
+.homeFeature {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: #efede8;
+}
+.homeFeature > div:first-child {
+  position: relative;
+  min-height: 400px;
+}
+.homeFeature img {
+  object-fit: cover;
+}
+.homeFeature > div:last-child {
+  padding: 60px;
+}
+.homeFeature h3 {
+  font-size: 42px;
+  margin: 25px 0;
+}
+.homeFeature p:not(:first-child) {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+.homeFeature small {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 8px;
+  background: #e6e3dcdd;
+  padding: 7px 10px;
+}
+.similar {
+  padding: 40px var(--gutter) 80px;
+  border-top: 1px solid var(--line);
+  margin: 0 var(--gutter);
+  padding-inline: 0;
+}
+.similar h2 {
+  font-size: var(--step-3);
+  margin-bottom: 32px;
+}
+.similarGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.similarImage {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.similarImage img {
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.similarItem:hover .similarImage img {
+  transform: scale(1.035);
+}
+.similarItem h3 {
+  font-size: var(--step-2);
+}
+.similarItem p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.related {
+  padding: 0 var(--gutter) 75px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .object {
+    min-height: 490px;
+  }
+  .intro h1 {
+    font-size: 58px;
+  }
+  .homeFeature > div:last-child {
+    padding: 40px;
+  }
+  .homeFeature h3 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 700px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 35px;
+    gap: 0;
+  }
+  .intro {
+    padding-bottom: 0;
+  }
+  .intro h1 {
+    font-size: 49px;
+  }
+  .intro > p:not(:first-child) {
+    font-size: 12px;
+    margin: 20px 0;
+  }
+  .objectWrap {
+    margin: 0 -15px;
+  }
+  .object {
+    flex: none;
+    height: 390px;
+    min-height: 390px;
+  }
+  .objectBar {
+    padding-bottom: 8px;
+  }
+  .poster {
+    inset: 27% 14% 28%;
+  }
+  .caption {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 9px;
+  }
+  .technical {
+    padding-bottom: 40px;
+  }
+  .environments {
+    padding: 50px var(--gutter);
+  }
+  .environmentTitle {
+    font-size: 35px;
+    margin-bottom: 24px;
+  }
+  .environmentImage {
+    aspect-ratio: 1.2;
+  }
+  .environmentImage > span {
+    font-size: 11px;
+    left: 12px;
+    bottom: 12px;
+  }
+  .roomTabs {
+    gap: 20px;
+  }
+  .homeFeature {
+    grid-template-columns: 1fr;
+  }
+  .homeFeature > div:first-child {
+    min-height: 270px;
+  }
+  .homeFeature > div:last-child {
+    padding: 30px;
+  }
+  .homeFeature h3 {
+    font-size: 34px;
+  }
+  .similar {
+    padding-bottom: 50px;
+  }
+  .similarGrid {
+    display: flex;
+    gap: 16px;
+  }
+  .similarItem {
+    flex: none;
+    width: 100%;
+  }
+  .related {
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+  }
+}

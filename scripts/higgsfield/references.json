@@ -1,0 +1,141 @@
+{
+  "_comment": "Real stone references used to guide generation. A material is only generated when approved=true and a description exists. Set approved=true only after the reference has been reviewed against the real slab and its reuse is authorized (see public/textures/sources.json).",
+  "materials": {
+    "preto-sao-gabriel": {
+      "name": "Preto São Gabriel",
+      "category": "granite",
+      "file": "public/textures/preto-sao-gabriel.jpg",
+      "approved": true,
+      "finish": "polished, with a deep glossy black surface",
+      "description": "a near-black granite with a dense, fine-to-medium even grain; small scattered light grey and white mineral flecks of a few millimetres over the black base, occasional faint silvery glints, no veins, no directional pattern and no large inclusions."
+    },
+    "branco-dallas": {
+      "name": "Branco Dallas",
+      "category": "granite",
+      "file": "public/textures/branco-dallas.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a cool off-white granite with a medium-to-coarse, evenly distributed granular texture: a dense milky-white feldspar background, irregular clusters of black and dark grey mica of about 2 to 8 mm, small scattered burgundy-red garnet dots of 1 to 5 mm, and a few translucent soft-grey quartz patches; no veins, no directional flow, no beige or yellow cast."
+    },
+    "branco-itaunas": {
+      "name": "Branco Itaúnas",
+      "category": "granite",
+      "file": "public/textures/branco-itaunas.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a warm off-white to ivory granite with a medium-to-coarse but very low-contrast grain: translucent pale cream and glassy light-grey crystals packed closely, a faint greenish-grey tint in places, sparse tiny pinkish-red garnet dots of 1 to 2 mm and almost no dark grains; from a distance it reads as a soft, nearly uniform light surface with no veins."
+    },
+    "quartzo-branco": {
+      "name": "Quartzo Branco",
+      "category": "engineered quartz",
+      "file": "public/textures/quartzo-branco.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a pure, bright white engineered quartz with an almost uniform surface: only extremely faint, tiny pale-grey specks visible up close, no veins, no visible grain from a distance, no pink or yellow cast."
+    },
+    "santa-cecilia": {
+      "name": "Santa Cecília",
+      "category": "granite",
+      "file": "public/textures/santa-cecilia.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a warm golden-beige granite with a coarse grain: golden-ochre and yellow feldspar crystals, white and translucent grey quartz, thin black mica streaks forming a slight irregular flow, and scattered burgundy-brown garnets of 3 to 8 mm; medium contrast, no veins.",
+      "generationFile": "scripts/higgsfield/references/santa-cecilia-crop.jpg"
+    },
+    "verde-ubatuba": {
+      "name": "Verde Ubatuba",
+      "category": "granite",
+      "file": "public/textures/verde-ubatuba.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a very dark green granite that reads almost black: a dense, medium-to-coarse grain of deep bottle-green to blackish crystals, lighter olive and sage-green feldspar patches, and occasional small golden-bronze mica glints; no veins and no white flecks."
+    },
+    "preto-absoluto": {
+      "name": "Preto Absoluto",
+      "category": "granite",
+      "file": "public/textures/preto-absoluto.jpg",
+      "approved": true,
+      "finish": "polished, mirror-like",
+      "description": "a deep, uniform black granite with an extremely fine grain: nearly solid black, with only tiny faint grey micro-specks visible up close; from the camera it reads as a continuous black surface with no flecks, veins or pattern."
+    },
+    "marmore-branco": {
+      "name": "Mármore Branco",
+      "category": "marble",
+      "file": "public/textures/marmore-branco.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a white marble with a cool, slightly grey-white background, soft diffuse light-grey veins flowing diagonally in thin wavy bands, a few cloudy grey patches and faint greenish-grey traces; low contrast, no dark, black or gold veins.",
+      "pattern": "veined"
+    },
+    "branco-stelar": {
+      "name": "Branco Stelar",
+      "category": "engineered quartz",
+      "file": "public/textures/branco-stelar.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a white engineered quartz with a bright white base densely scattered with small angular translucent glass-like chips of 2 to 10 mm in white, pale grey and very pale aqua that catch the light with a subtle sparkle; no veins."
+    },
+    "travertino": {
+      "name": "Travertino",
+      "category": "travertine",
+      "file": "public/textures/travertino.jpg",
+      "approved": true,
+      "finish": "honed and filled, matte",
+      "description": "a warm beige cross-cut travertine in cream to light tan: a cloudy, mottled surface with lighter irregular patches, thin irregular darker-tan fissures running in random directions and tiny natural pores filled flush; NOT vein-cut, with no long parallel linear bands or stripes; no grey, no glossy shine, no strong contrast.",
+      "pattern": "mottled"
+    },
+    "onix-cristal": {
+      "name": "Ônix Cristal",
+      "category": "onyx",
+      "file": "public/textures/onix-cristal.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a translucent white to ivory onyx with a crystalline, fibrous structure: milky white zones, soft grey translucent depth and thin amber to rust-orange veins running mostly vertically; luminous, glassy and delicate, never opaque or chalky.",
+      "pattern": "veined"
+    },
+    "quartzo-calacata": {
+      "name": "Quartzo Calacata",
+      "category": "engineered quartz",
+      "file": "public/textures/quartzo-calacata.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a bright white engineered quartz with a Calacatta look: a clean, slightly cool white base crossed by fine-to-medium soft grey veins that branch and fork in thin irregular lines, a few veins slightly thicker with softly blurred edges; medium contrast, no gold, beige or black veins.",
+      "pattern": "veined"
+    },
+    "quartzo-calacata-gold": {
+      "name": "Quartzo Calacata Gold",
+      "category": "engineered quartz",
+      "file": "public/textures/quartzo-calacata-gold.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a warm bright white engineered quartz with a Calacatta Gold look: a clean white base with sparse, long, gently flowing veins in soft grey combined with thin golden-beige to light brass-toned lines, and a few wider cloudy pale-grey veins; elegant, low-to-medium contrast, no black veins.",
+      "pattern": "veined"
+    },
+    "cafe-imperial": {
+      "name": "Café Imperial",
+      "category": "granite",
+      "file": "public/textures/cafe-imperial.jpg",
+      "approved": true,
+      "finish": "polished",
+      "description": "a dark coffee-brown granite with a dense medium-to-coarse grain: deep chocolate-brown and blackish crystals packed closely, scattered smaller lighter tan and pinkish-beige grains, small black mica points and occasional tiny silvery glints; it reads as a rich, dark brown speckled surface with no veins."
+    },
+    "travertino-romano": {
+      "name": "Travertino Romano",
+      "category": "travertine",
+      "file": "public/textures/travertino-romano.jpg",
+      "approved": true,
+      "finish": "honed and filled, matte",
+      "description": "a warm beige Roman travertine in cream, honey and light tan: soft layered bands and streaks running in one direction, with small natural pores and cavities filled flush; gently varied tone, matte, no grey, no glossy shine and no strong contrast.",
+      "pattern": "veined"
+    },
+    "nanoglass": {
+      "name": "Nanoglass",
+      "category": "engineered glass-ceramic surface",
+      "file": "public/textures/nanoglass.jpg",
+      "approved": true,
+      "finish": "polished, glassy",
+      "description": "a pure, bright, opaque white engineered glass surface: completely uniform with no veins, no grain and no speckles, with a deep glassy polish and crisp reflections; no grey, cream or blue cast.",
+      "generationFile": "scripts/higgsfield/references/nanoglass-crop.jpg"
+    }
+  }
+}

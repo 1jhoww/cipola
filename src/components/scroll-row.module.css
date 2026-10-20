@@ -1,0 +1,51 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.track {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+.track > * {
+  scroll-snap-align: start;
+}
+.arrow {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: none;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition:
+    border-color 0.2s,
+    opacity 0.2s;
+}
+.row[data-overflow="true"] .arrow {
+  display: grid;
+}
+.arrow:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+.arrow:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+.arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

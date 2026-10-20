@@ -1,0 +1,804 @@
+{
+  "images": {
+    "branco-dallas": {
+      "cozinha": {
+        "src": "/images/materiais/branco-dallas/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-dallas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T02:45:51.598Z",
+        "approvedAt": "2026-10-17T02:51:14.041Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/branco-dallas/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-dallas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T02:52:58.117Z",
+        "approvedAt": "2026-10-17T03:16:48.663Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/branco-dallas/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-dallas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T02:54:37.845Z",
+        "approvedAt": "2026-10-17T03:16:48.866Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/branco-dallas/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-dallas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T02:56:09.358Z",
+        "approvedAt": "2026-10-17T03:16:49.063Z"
+      }
+    },
+    "branco-itaunas": {
+      "cozinha": {
+        "src": "/images/materiais/branco-itaunas/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-itaunas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T03:21:03.564Z",
+        "approvedAt": "2026-10-17T03:52:16.323Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/branco-itaunas/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-itaunas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T03:27:02.161Z",
+        "approvedAt": "2026-10-17T03:52:16.550Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/branco-itaunas/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-itaunas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T03:23:52.533Z",
+        "approvedAt": "2026-10-17T03:52:16.785Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/branco-itaunas/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-itaunas.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T03:28:32.321Z",
+        "approvedAt": "2026-10-17T03:52:17.011Z"
+      }
+    },
+    "branco-stelar": {
+      "cozinha": {
+        "src": "/images/materiais/branco-stelar/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-stelar.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T23:06:33.883Z",
+        "approvedAt": "2026-10-17T23:40:18.554Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/branco-stelar/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-stelar.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T23:08:51.291Z",
+        "approvedAt": "2026-10-17T23:40:18.755Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/branco-stelar/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-stelar.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T23:11:07.356Z",
+        "approvedAt": "2026-10-17T23:40:18.962Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/branco-stelar/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/branco-stelar.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T23:13:24.883Z",
+        "approvedAt": "2026-10-17T23:40:19.169Z"
+      }
+    },
+    "cafe-imperial": {
+      "cozinha": {
+        "src": "/images/materiais/cafe-imperial/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/cafe-imperial.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2 + grain fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-20T00:13:20.475Z",
+        "approvedAt": "2026-10-20T00:13:36.914Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/cafe-imperial/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/cafe-imperial.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2 + scale note, framing fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-20T00:18:50.222Z",
+        "approvedAt": "2026-10-20T00:19:03.016Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/cafe-imperial/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/cafe-imperial.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2 + scale note, grain fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-20T00:21:32.976Z",
+        "approvedAt": "2026-10-20T00:21:46.456Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/cafe-imperial/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/cafe-imperial.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2 + scale note, 3:2 reframe)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-20T21:02:35.396Z",
+        "approvedAt": "2026-10-20T21:02:35.632Z"
+      }
+    },
+    "marmore-branco": {
+      "cozinha": {
+        "src": "/images/materiais/marmore-branco/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/marmore-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T22:57:09.940Z",
+        "approvedAt": "2026-10-17T23:40:17.737Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/marmore-branco/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/marmore-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T22:59:41.175Z",
+        "approvedAt": "2026-10-17T23:40:17.939Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/marmore-branco/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/marmore-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T23:01:56.299Z",
+        "approvedAt": "2026-10-17T23:40:18.152Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/marmore-branco/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/marmore-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T23:04:12.512Z",
+        "approvedAt": "2026-10-17T23:40:18.354Z"
+      }
+    },
+    "nanoglass": {
+      "cozinha": {
+        "src": "/images/materiais/nanoglass/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/nanoglass.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2, uniform-surface note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-20T21:10:39.410Z",
+        "approvedAt": "2026-10-20T21:10:39.609Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/nanoglass/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/nanoglass.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2, uniform-surface note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-20T21:12:38.444Z",
+        "approvedAt": "2026-10-20T21:12:38.663Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/nanoglass/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/nanoglass.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2, uniform-surface note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-20T21:13:53.982Z",
+        "approvedAt": "2026-10-20T21:13:54.173Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/nanoglass/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/nanoglass.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2, uniform-surface note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-20T21:15:12.917Z",
+        "approvedAt": "2026-10-20T21:15:13.114Z"
+      }
+    },
+    "onix-cristal": {
+      "cozinha": {
+        "src": "/images/materiais/onix-cristal/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/onix-cristal.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T23:29:54.742Z",
+        "approvedAt": "2026-10-17T23:40:20.180Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/onix-cristal/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/onix-cristal.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T23:32:12.483Z",
+        "approvedAt": "2026-10-17T23:40:20.383Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/onix-cristal/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/onix-cristal.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T23:34:30.150Z",
+        "approvedAt": "2026-10-17T23:40:20.604Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/onix-cristal/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/onix-cristal.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T23:36:47.870Z",
+        "approvedAt": "2026-10-17T23:40:20.811Z"
+      }
+    },
+    "preto-absoluto": {
+      "cozinha": {
+        "src": "/images/materiais/preto-absoluto/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-absoluto.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T03:45:58.605Z",
+        "approvedAt": "2026-10-17T03:52:18.890Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/preto-absoluto/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-absoluto.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T03:47:28.838Z",
+        "approvedAt": "2026-10-17T03:52:19.100Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/preto-absoluto/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-absoluto.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2 + reflection fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T03:50:02.710Z",
+        "approvedAt": "2026-10-17T03:52:19.300Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/preto-absoluto/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-absoluto.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T03:51:34.106Z",
+        "approvedAt": "2026-10-17T03:52:19.503Z"
+      }
+    },
+    "preto-sao-gabriel": {
+      "cozinha": {
+        "src": "/images/materiais/preto-sao-gabriel/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-sao-gabriel.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T02:23:31.082Z",
+        "approvedAt": "2026-10-17T02:23:47.030Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/preto-sao-gabriel/banheiro.webp",
+        "width": 2400,
+        "height": 1600,
+        "reference": "/textures/preto-sao-gabriel.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T02:35:48.873Z",
+        "approvedAt": "2026-10-17T02:36:02.933Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/preto-sao-gabriel/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-sao-gabriel.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T02:35:34.506Z",
+        "approvedAt": "2026-10-17T02:36:03.121Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/preto-sao-gabriel/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/preto-sao-gabriel.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit + reflection fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T02:37:00.713Z",
+        "approvedAt": "2026-10-17T02:37:08.435Z"
+      }
+    },
+    "quartzo-branco": {
+      "cozinha": {
+        "src": "/images/materiais/quartzo-branco/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T03:56:07.668Z",
+        "approvedAt": "2026-10-17T23:40:16.908Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/quartzo-branco/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T03:57:39.968Z",
+        "approvedAt": "2026-10-17T23:40:17.108Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/quartzo-branco/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T03:59:11.049Z",
+        "approvedAt": "2026-10-17T23:40:17.316Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/quartzo-branco/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-branco.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T22:54:39.166Z",
+        "approvedAt": "2026-10-17T23:40:17.528Z"
+      }
+    },
+    "quartzo-calacata": {
+      "cozinha": {
+        "src": "/images/materiais/quartzo-calacata/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-19T23:57:41.599Z",
+        "approvedAt": "2026-10-19T23:57:51.785Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/quartzo-calacata/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-19T23:59:18.396Z",
+        "approvedAt": "2026-10-19T23:59:30.083Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/quartzo-calacata/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-20T00:01:05.828Z",
+        "approvedAt": "2026-10-20T00:01:14.493Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/quartzo-calacata/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-20T00:02:49.641Z",
+        "approvedAt": "2026-10-20T00:03:00.981Z"
+      }
+    },
+    "quartzo-calacata-gold": {
+      "cozinha": {
+        "src": "/images/materiais/quartzo-calacata-gold/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata-gold.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-20T00:04:23.997Z",
+        "approvedAt": "2026-10-20T00:04:32.845Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/quartzo-calacata-gold/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata-gold.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-20T00:05:54.420Z",
+        "approvedAt": "2026-10-20T00:06:06.094Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/quartzo-calacata-gold/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata-gold.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-20T00:07:44.511Z",
+        "approvedAt": "2026-10-20T00:07:58.231Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/quartzo-calacata-gold/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/quartzo-calacata-gold.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2 + grill fix)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-20T00:10:35.870Z",
+        "approvedAt": "2026-10-20T00:10:51.977Z"
+      }
+    },
+    "santa-cecilia": {
+      "cozinha": {
+        "src": "/images/materiais/santa-cecilia/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/santa-cecilia.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T03:31:53.730Z",
+        "approvedAt": "2026-10-17T03:52:17.234Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/santa-cecilia/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/santa-cecilia.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T03:33:35.422Z",
+        "approvedAt": "2026-10-17T03:52:17.440Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/santa-cecilia/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/santa-cecilia.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T03:35:04.800Z",
+        "approvedAt": "2026-10-17T03:52:17.648Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/santa-cecilia/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/santa-cecilia.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T03:36:42.581Z",
+        "approvedAt": "2026-10-17T03:52:17.876Z"
+      }
+    },
+    "travertino": {
+      "cozinha": {
+        "src": "/images/materiais/travertino/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T23:25:12.801Z",
+        "approvedAt": "2026-10-17T23:40:19.370Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/travertino/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T23:27:29.596Z",
+        "approvedAt": "2026-10-17T23:40:19.569Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/travertino/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T23:20:22.445Z",
+        "approvedAt": "2026-10-17T23:40:19.776Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/travertino/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T23:22:55.704Z",
+        "approvedAt": "2026-10-17T23:40:19.979Z"
+      }
+    },
+    "travertino-romano": {
+      "cozinha": {
+        "src": "/images/materiais/travertino-romano/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino-romano.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2 + scale note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-20T21:04:38.172Z",
+        "approvedAt": "2026-10-20T21:04:38.403Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/travertino-romano/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino-romano.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2 + scale note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-20T21:06:31.806Z",
+        "approvedAt": "2026-10-20T21:06:32.007Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/travertino-romano/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino-romano.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2 + scale note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-20T21:07:42.566Z",
+        "approvedAt": "2026-10-20T21:07:42.781Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/travertino-romano/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/travertino-romano.jpg",
+        "model": "Gemini app (3.1 Pro, image edit v2 + scale note)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-20T21:09:07.905Z",
+        "approvedAt": "2026-10-20T21:09:08.098Z"
+      }
+    },
+    "verde-ubatuba": {
+      "cozinha": {
+        "src": "/images/materiais/verde-ubatuba/cozinha.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/verde-ubatuba.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--cozinha--e7f1be01-3be7-4674-87a0-317ef10f23cf.jpg",
+        "generatedAt": "2026-10-17T03:38:19.561Z",
+        "approvedAt": "2026-10-17T03:52:18.077Z"
+      },
+      "banheiro": {
+        "src": "/images/materiais/verde-ubatuba/banheiro.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/verde-ubatuba.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--banheiro--3fbd236d-aa2e-4ef2-b1eb-0d7277c919d6.jpg",
+        "generatedAt": "2026-10-17T03:39:46.855Z",
+        "approvedAt": "2026-10-17T03:52:18.284Z"
+      },
+      "lavabo": {
+        "src": "/images/materiais/verde-ubatuba/lavabo.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/verde-ubatuba.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--lavabo--6b44e616-3f11-4d11-9d0d-89bceb2aa21f.jpg",
+        "generatedAt": "2026-10-17T03:42:49.894Z",
+        "approvedAt": "2026-10-17T03:52:18.488Z"
+      },
+      "gourmet": {
+        "src": "/images/materiais/verde-ubatuba/gourmet.webp",
+        "width": 2400,
+        "height": 1610,
+        "reference": "/textures/verde-ubatuba.jpg",
+        "model": "Gemini app (Gemini 4 Pro, image edit v2)",
+        "requestId": null,
+        "masterRequestId": null,
+        "master": "data/image-generation/originals/master--gourmet--1a0fdb2b-8a99-4cae-9644-5a73f0186797.jpg",
+        "generatedAt": "2026-10-17T03:44:20.351Z",
+        "approvedAt": "2026-10-17T03:52:18.689Z"
+      }
+    }
+  }
+}

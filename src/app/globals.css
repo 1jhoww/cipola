@@ -1,0 +1,272 @@
+:root {
+  /* Cipola palette. */
+  --obsidiana: #17191a;
+  --gelo: #e6e3dc;
+  --concreto: #a6a7a2;
+  --champagne: #b89a72;
+  --ametista: #77759c;
+  /* Roles. Muted text and lines are derived from Concreto for legible contrast. */
+  --paper: var(--gelo);
+  --paper-soft: #efede8;
+  --ink: var(--obsidiana);
+  --muted: #56585a;
+  --line: #c6c5bf;
+  --sand: var(--champagne);
+  --vein: var(--ametista);
+  --white: #fff;
+  --dark: var(--obsidiana);
+  --font: "Manrope Variable", sans-serif;
+  /* Type scale, ratio ~1.333 from a 16px body. */
+  --step--1: 13px;
+  --step-0: 16px;
+  --step-1: 20px;
+  --step-2: clamp(22px, 2.2vw, 27px);
+  --step-3: clamp(28px, 3.2vw, 36px);
+  --step-4: clamp(36px, 4.8vw, 56px);
+  --step-5: clamp(42px, 6.6vw, 88px);
+  --gutter: clamp(16px, 5vw, 88px);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--step-5);
+}
+h2 {
+  font-size: var(--step-4);
+}
+h3 {
+  font-size: var(--step-2);
+}
+p {
+  max-width: 65ch;
+}
+::selection {
+  background: var(--sand);
+  color: var(--ink);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--vein);
+  outline-offset: 5px;
+}
+a,
+button {
+  touch-action: manipulation;
+}
+.eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.section {
+  padding: 100px var(--gutter);
+}
+.text-link {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  font-size: 15px;
+  font-weight: 600;
+}
+.text-link span {
+  transition: transform 0.2s;
+}
+.text-link:hover span {
+  transform: translate(3px, -3px);
+}
+.button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.button:hover {
+  background: #2e3133;
+  border-color: #2e3133;
+}
+.button-light {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.button-light:hover {
+  background: var(--sand);
+  border-color: var(--sand);
+}
+/* Quote requests use Champagne everywhere so the main action is easy to spot. */
+.button-accent {
+  background: var(--champagne);
+  color: var(--obsidiana);
+  border-color: var(--champagne);
+}
+.button-accent:hover {
+  background: #a5865d;
+  border-color: #a5865d;
+}
+/* Ametista, a shade deeper than the swatch so white text passes WCAG AA (about 5:1).
+   Used for quote requests on the material page, beside the 3D stone. */
+.button-vein {
+  background: #6e6c94;
+  color: var(--white);
+  border-color: #6e6c94;
+}
+.button-vein:hover {
+  background: #5d5b80;
+  border-color: #5d5b80;
+}
+.button-outline {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+.button-outline:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.note {
+  font-size: var(--step--1);
+  line-height: 1.7;
+  color: var(--muted);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pill:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link {
+  position: fixed;
+  left: 20px;
+  top: -100px;
+  z-index: 100;
+  background: white;
+  color: black;
+  padding: 15px;
+}
+.skip-link:focus {
+  top: 10px;
+}
+.demo-tag {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.empty {
+  padding: 60px 0;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .section {
+    padding: 65px var(--gutter);
+  }
+  .button {
+    padding: 15px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

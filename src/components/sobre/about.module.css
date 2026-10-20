@@ -1,0 +1,487 @@
+/* /sobre: editorial story on a 12-column grid, photos left room to breathe. */
+.hero,
+.origin,
+.growth,
+.generations,
+.closing {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  padding-inline: var(--gutter);
+}
+
+/* Photo frame and placeholder */
+.photo {
+  margin: 0;
+  position: relative;
+}
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: #d8d5cd;
+}
+.media {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.media img {
+  object-fit: cover;
+}
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: clamp(14px, 2vw, 24px);
+  color: #56585a;
+  font-size: var(--step--1);
+  line-height: 1.4;
+  /* A faint diagonal grain, so the empty frame reads as stone, not as a box. */
+  background:
+    linear-gradient(115deg, transparent 38%, #ffffff40 46%, transparent 54%),
+    repeating-linear-gradient(115deg, #17191a06 0 2px, transparent 2px 9px),
+    #d8d5cd;
+}
+.placeholder span:first-child {
+  max-width: 28ch;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.caption {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.caption strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Opening: a dark band. On desktop the headline and the family photo share
+   the first screen; on narrow screens the photo follows the headline. */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: min(calc(100svh - 100px), 1000px);
+  padding-block: clamp(48px, 6vw, 96px);
+  column-gap: clamp(24px, 3vw, 56px);
+  row-gap: clamp(24px, 2.4vw, 40px);
+  align-content: center;
+  overflow: hidden;
+}
+.heroText {
+  grid-area: 1 / 1 / 2 / 6;
+  align-self: end;
+  display: grid;
+  gap: clamp(20px, 2.2vw, 36px);
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+.hero h1 {
+  font-size: clamp(44px, 4.2vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  will-change: transform;
+}
+.lineA,
+.lineB {
+  display: block;
+  overflow: hidden;
+  /* Room for descenders inside the rising mask. */
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+.lineA > span,
+.lineB > span {
+  display: block;
+}
+/* The second sentence steps forward, as the next generation carries the first. */
+.lineB {
+  margin-top: 0.18em;
+  padding-left: 8%;
+  color: var(--champagne);
+}
+.heroLead {
+  grid-area: 2 / 1 / 3 / 6;
+  align-self: start;
+  max-width: 34ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: #cfccc4;
+}
+/* The photo runs off the right edge, never wider than its own 1600px. */
+.heroPhoto {
+  grid-area: 1 / 6 / 3 / -1;
+  align-self: center;
+  margin-right: calc(var(--gutter) * -1);
+}
+.heroPhoto .photo {
+  max-width: 1600px;
+}
+.hero .frame {
+  background: #26292a;
+}
+.hero .caption {
+  color: var(--concreto);
+}
+
+/* Origin */
+.origin {
+  padding-top: clamp(72px, 9vw, 150px);
+  padding-bottom: clamp(96px, 12vw, 200px);
+  align-items: start;
+}
+.year {
+  grid-area: 1 / 1 / 2 / -1;
+  max-width: none;
+  overflow: hidden;
+  font-size: clamp(120px, 33vw, 600px);
+  font-weight: 200;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+  color: var(--ink);
+  font-variant-numeric: lining-nums;
+}
+.year span {
+  display: block;
+  will-change: transform;
+}
+.originText {
+  grid-area: 2 / 6 / 3 / 12;
+  padding-top: clamp(32px, 4vw, 64px);
+  display: grid;
+  gap: 20px;
+}
+.originText h2 {
+  font-size: var(--step-4);
+  margin-bottom: 8px;
+}
+
+/* Growth: the one dark band, wide room for machinery and production photos. */
+.growth {
+  background: var(--ink);
+  color: var(--paper);
+  padding-block: clamp(88px, 11vw, 180px);
+  row-gap: clamp(48px, 6vw, 96px);
+}
+.growth .frame,
+.growth .placeholder {
+  background-color: #26292a;
+}
+.growth .placeholder {
+  color: var(--concreto);
+  background-image:
+    linear-gradient(115deg, transparent 38%, #ffffff0d 46%, transparent 54%),
+    repeating-linear-gradient(115deg, #ffffff05 0 2px, transparent 2px 9px);
+}
+.growth .placeholder span:first-child {
+  color: var(--paper);
+}
+.growth .caption {
+  color: var(--concreto);
+}
+.growthHead {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: end;
+}
+.growthHead h2 {
+  grid-column: 1 / 7;
+}
+.growthText {
+  grid-column: 8 / 12;
+  display: grid;
+  gap: 18px;
+  color: #cfccc4;
+}
+.growthPhotos {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+.machines {
+  grid-area: 1 / 1 / 2 / 9;
+}
+.production {
+  grid-area: 1 / 8 / 3 / 12;
+  margin-top: clamp(120px, 20vw, 340px);
+  z-index: 1;
+}
+.finish {
+  grid-area: 2 / 2 / 4 / 7;
+  margin-top: clamp(40px, 5vw, 80px);
+}
+.growthNote {
+  grid-area: 3 / 8 / 4 / 12;
+  align-self: end;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--paper);
+  margin-top: 48px;
+}
+
+/* Two generations */
+.generations {
+  padding-top: clamp(96px, 12vw, 200px);
+  /* The works band follows straight after, so the bottom stays short. */
+  padding-bottom: clamp(64px, 7vw, 112px);
+  row-gap: clamp(48px, 6vw, 96px);
+}
+.generationsHead {
+  grid-column: 1 / 9;
+}
+.generationsHead h2 {
+  font-size: clamp(40px, 6vw, 100px);
+  letter-spacing: -0.05em;
+}
+.statement {
+  margin-top: clamp(20px, 2.4vw, 36px);
+  max-width: 30ch;
+  font-size: var(--step-3);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #3d4042;
+}
+.portraits {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+.founder {
+  grid-area: 1 / 1 / 2 / 4;
+  margin-top: clamp(40px, 7vw, 120px);
+}
+.together {
+  grid-area: 1 / 4 / 2 / 10;
+  z-index: 1;
+}
+.successor {
+  grid-area: 1 / 10 / 3 / -1;
+  margin-top: clamp(140px, 22vw, 380px);
+  z-index: 2;
+}
+.founder,
+.successor {
+  will-change: transform;
+}
+/* The text sits under the photo of father and son, beside Rafael's portrait. */
+.generationsText {
+  grid-area: 2 / 4 / 3 / 9;
+  margin-top: clamp(32px, 3.4vw, 56px);
+  display: grid;
+  gap: 20px;
+  font-size: 17px;
+}
+
+/* Closing: a lighter band, so the page moves on from the family story. */
+.closing {
+  background: var(--paper-soft);
+  padding-block: clamp(80px, 9vw, 150px);
+  row-gap: clamp(48px, 6vw, 88px);
+}
+.closingHead {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: end;
+  row-gap: 32px;
+}
+.closingHead h2 {
+  grid-column: 1 / 7;
+}
+.closingText {
+  grid-column: 8 / -1;
+  display: grid;
+  gap: 28px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.works {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: end;
+}
+.work {
+  display: grid;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.work:nth-child(1) {
+  grid-column: 1 / 4;
+}
+.work:nth-child(2) {
+  grid-column: 5 / 9;
+  align-self: center;
+}
+.work:nth-child(3) {
+  grid-column: 10 / -1;
+}
+.work img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s;
+}
+.work:hover img {
+  opacity: 0.86;
+}
+.work span {
+  border-bottom: 1px solid transparent;
+  width: max-content;
+  max-width: 100%;
+  transition: border-color 0.2s;
+}
+.work:hover span {
+  border-color: currentColor;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 0;
+    align-content: start;
+    row-gap: clamp(28px, 5vw, 44px);
+  }
+  .heroText {
+    grid-area: 1 / 1 / 2 / -1;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 10vw, 80px);
+  }
+  .heroPhoto {
+    grid-area: 2 / 1 / 3 / -1;
+    margin-inline: calc(var(--gutter) * -1);
+  }
+  .heroPhoto .caption {
+    padding-inline: var(--gutter);
+  }
+  .heroLead {
+    grid-area: 3 / 1 / 4 / -1;
+    max-width: none;
+  }
+
+  .year {
+    font-size: 36vw;
+  }
+  .originText {
+    grid-area: 2 / 1 / 3 / -1;
+  }
+
+  .growthHead h2,
+  .growthText {
+    grid-column: 1 / -1;
+  }
+  .growthText {
+    margin-top: 24px;
+  }
+  .machines {
+    grid-area: 1 / 1 / 2 / -1;
+    margin-inline: calc(var(--gutter) * -1);
+  }
+  .machines .caption {
+    padding-inline: var(--gutter);
+  }
+  .production {
+    grid-area: 2 / 5 / 3 / -1;
+    margin-top: 32px;
+  }
+  .finish {
+    grid-area: 3 / 1 / 4 / 7;
+    margin-top: 24px;
+  }
+  .growthNote {
+    grid-area: 4 / 1 / 5 / -1;
+  }
+
+  .generationsHead {
+    grid-column: 1 / -1;
+  }
+  .generationsText {
+    grid-area: 3 / 1 / 4 / -1;
+    margin-top: 48px;
+  }
+  .together {
+    grid-area: 1 / 1 / 2 / -1;
+  }
+  .founder {
+    grid-area: 2 / 1 / 3 / 7;
+    margin-top: 32px;
+  }
+  .successor {
+    grid-area: 2 / 7 / 3 / -1;
+    margin-top: 96px;
+  }
+
+  .closingHead h2,
+  .closingText {
+    grid-column: 1 / -1;
+  }
+  .work:nth-child(1) {
+    grid-column: 1 / 7;
+  }
+  .work:nth-child(2) {
+    grid-column: 7 / -1;
+    align-self: end;
+  }
+  .work:nth-child(3) {
+    grid-column: 3 / 11;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: clamp(38px, 11.5vw, 56px);
+  }
+  .lineB {
+    padding-left: 0;
+  }
+  .heroLead {
+    font-size: 18px;
+  }
+  .production {
+    grid-column: 4 / -1;
+  }
+  .finish {
+    grid-column: 1 / 8;
+  }
+  .founder {
+    grid-column: 1 / 7;
+  }
+  .successor {
+    grid-column: 7 / -1;
+    margin-top: 72px;
+  }
+  .caption strong {
+    font-size: 15px;
+  }
+  .actions > a {
+    flex: 1 1 100%;
+  }
+  .work:nth-child(n) {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+  .works {
+    row-gap: 40px;
+  }
+}

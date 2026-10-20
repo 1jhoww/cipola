@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "cipola", "runtimeExecutable": "npm", "runtimeArgs": ["run", "start"], "port": 3000 },
+    { "name": "cipola-3001", "runtimeExecutable": "npx", "runtimeArgs": ["next", "start", "-p", "3001"], "port": 3001 },
+    { "name": "cipola-dev-3002", "runtimeExecutable": "npx", "runtimeArgs": ["next", "dev", "-p", "3002"], "env": { "NEXT_DIST_DIR": ".next-dev-3002" }, "port": 3002 }
+  ]
+}
