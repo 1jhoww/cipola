@@ -2,7 +2,7 @@
 import { materialQuoteLink } from "@/lib/site";
 import { trackLead } from "@/lib/tracking";
 
-// Opens Rafael's WhatsApp with a quote request for one stone. The click counts
+// Opens Juliana's WhatsApp with a quote request for one stone. The click counts
 // as a lead for the ad campaigns, like a sent form.
 export function WhatsAppQuote({
   material,

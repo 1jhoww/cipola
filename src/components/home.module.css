@@ -186,6 +186,14 @@
   color: var(--muted);
   margin-top: 2px;
 }
+/* Swipe indicator under the track; phones only (wide screens scroll it with the page). */
+.swipe {
+  display: none;
+}
+@keyframes swipeNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
 
 /* Projects */
 .projects {
@@ -578,6 +586,41 @@
     flex-basis: min(62vw, 280px);
     scroll-snap-align: start;
   }
+  .swipe {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 var(--gutter);
+    margin-top: -12px;
+  }
+  .swipeBar {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .swipeThumb {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--thumb-left, 0%);
+    width: var(--thumb-width, 30%);
+    background: var(--ink);
+  }
+  .swipeHint {
+    flex: none;
+    font-size: 13px;
+    color: var(--muted);
+    transition: opacity 0.4s;
+  }
+  .swipe[data-moved] .swipeHint {
+    opacity: 0;
+  }
+  .swipeArrow {
+    display: inline-block;
+    animation: swipeNudge 1.4s ease-in-out infinite;
+  }
 }
 @media (max-width: 700px) {
   .hero {
@@ -650,5 +693,8 @@
   .projectImage img,
   .roomImage img {
     transition: none;
+  }
+  .swipeArrow {
+    animation: none;
   }
 }

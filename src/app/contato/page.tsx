@@ -50,6 +50,9 @@ export default async function Page({
                 WhatsApp {w.name} · {w.display} ↗︎
               </a>
             ))}
+            {site.phone && (
+              <a href={`tel:+${site.phone.number}`}>Telefone · {site.phone.display}</a>
+            )}
             {site.address && (
               <a href={mapsLink(site.address)} target="_blank" rel="noopener noreferrer">
                 {site.address} ↗︎

@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
@@ -135,6 +135,27 @@ function Words({ text }: { text: string }) {
 
 export function Home() {
   const root = useRef<HTMLDivElement>(null);
+  const swipe = useRef<HTMLDivElement>(null);
+  // Phones: the bar under the stones follows the swipe, so it shows there is more to the side.
+  useEffect(() => {
+    const track = root.current?.querySelector<HTMLElement>("[data-track]");
+    const bar = swipe.current;
+    if (!track || !bar) return;
+    const update = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = track;
+      bar.style.setProperty("--thumb-left", `${(scrollLeft / scrollWidth) * 100}%`);
+      bar.style.setProperty("--thumb-width", `${(clientWidth / scrollWidth) * 100}%`);
+      // Snapping alone shifts the track a few pixels; hide the hint only on a real swipe.
+      if (scrollLeft > 80) bar.setAttribute("data-moved", "");
+    };
+    update();
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      track.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
@@ -374,6 +395,14 @@ export function Home() {
             </Link>
           ))}
         </div>
+        <div className={s.swipe} ref={swipe} aria-hidden="true">
+          <span className={s.swipeBar}>
+            <span className={s.swipeThumb} />
+          </span>
+          <span className={s.swipeHint}>
+            Arraste para o lado <span className={s.swipeArrow}>→</span>
+          </span>
+        </div>
       </section>
 
       {featuredProjects.length > 0 && (
@@ -498,6 +527,10 @@ export function ContactBand() {
       href: whatsappLink(w.number),
       external: true,
     })),
+    site.phone && {
+      label: `Telefone ${site.phone.display}`,
+      href: `tel:+${site.phone.number}`,
+    },
     site.email && { label: site.email, href: `mailto:${site.email}` },
   ].filter(Boolean) as { label: string; href: string; external?: boolean }[];
   return (

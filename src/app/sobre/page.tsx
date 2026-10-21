@@ -23,7 +23,7 @@ const organization = {
   legalName: site.legalName,
   taxID: site.cnpj,
   email: site.email,
-  telephone: site.whatsapp.map((w) => `+${w.number}`),
+  telephone: [site.phone, ...site.whatsapp].map((w) => `+${w.number}`),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. Madagascar, 470 - Jardim Margarida",

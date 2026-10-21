@@ -5,10 +5,13 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "kakacipola@gmail.com",
   // WhatsApp numbers with country code; display keeps the local format.
+  // The first one receives the quotes; the others get a "send too" button.
   whatsapp: [
+    { name: "Juliana", number: "5511978975025", display: "(11) 97897-5025" },
     { name: "Rafael (Kaka)", number: "5511971597501", display: "(11) 97159-7501" },
-    { name: "Juliana", number: "5511989419437", display: "(11) 98941-9437" },
   ],
+  // Landline, for calls.
+  phone: { number: "551152868881", display: "(11) 5286-8881" },
   address:
     process.env.NEXT_PUBLIC_ADDRESS ||
     "Av. Madagascar, 470 - Jardim Margarida, Vargem Grande Paulista - SP, 06730-000",
@@ -58,7 +61,7 @@ export function whatsappLink(
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
 
-// Quote button on a stone: straight to Rafael's WhatsApp, no form to fill.
+// Quote button on a stone: straight to the first WhatsApp (Juliana), no form to fill.
 export function materialQuoteLink(materialName: string) {
   return whatsappLink(
     site.whatsapp[0].number,
