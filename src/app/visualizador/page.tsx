@@ -1,4 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
+// The viewer moved into the catalog for good.
 export default function Page() {
-  redirect("/materiais");
+  permanentRedirect("/materiais");
 }

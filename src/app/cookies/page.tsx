@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { CookiePreferencesButton } from "@/components/consent/CookieConsent";
 import { cookieCategories, cookieTable, legalUpdated } from "@/lib/legal";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import s from "@/components/pages.module.css";
-export const metadata: Metadata = {
-  title: "Política de Cookies",
+export const metadata = pageMetadata({
+  title: "Política de Cookies | Cipola Mármores e Granitos",
   description:
     "Quais cookies o site da Cipola usa, para que servem, por quanto tempo ficam guardados e como gerenciar suas preferências.",
-  alternates: { canonical: "/cookies" },
-};
+  path: "/cookies",
+});
 export default function Page() {
   return (
     <>

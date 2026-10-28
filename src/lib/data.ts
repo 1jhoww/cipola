@@ -332,3 +332,51 @@ export const processSteps = [
     text: "A montagem conclui o projeto. As orientações de uso e conservação devem acompanhar cada tipo de pedra.",
   },
 ];
+// What Cipola makes, as listed on the home page. Feeds the schema.org services and llms.txt.
+export const services = [
+  {
+    name: "Bancadas de cozinha sob medida",
+    description:
+      "Bancadas, ilhas e frontões em granito, mármore, quartzo e porcelanato, com recortes de cuba e cooktop definidos antes do corte.",
+  },
+  {
+    name: "Bancadas para áreas gourmet",
+    description:
+      "Bancadas de churrasqueira, ilhas e tampos para áreas gourmet internas e externas.",
+  },
+  {
+    name: "Bancadas para banheiros e lavabos",
+    description:
+      "Bancadas, cubas esculpidas e revestimentos de paredes, banheiras e degraus em pedra.",
+  },
+  {
+    name: "Lareiras, revestimentos e peças especiais",
+    description:
+      "Revestimento de lareiras, tampos de mesa e outras peças sob desenho, em pedra natural ou quartzo.",
+  },
+  {
+    name: "Atendimento a arquitetos e construtoras",
+    description:
+      "Paginação dos veios, encontros e acabamentos resolvidos a partir das plantas e do detalhamento do projeto.",
+  },
+];
+// "claro e granulado", "claro, com veios": the tone and pattern of a stone in words.
+export function describeCharacter(m: Material) {
+  const [tone, pattern] = m.character.toLowerCase().split(" · ");
+  return pattern === "veios" ? `${tone}, com veios` : `${tone} e ${pattern}`;
+}
+// Short, general notes on each kind of stone, shown on its catalog page.
+export const categoryNotes: Record<Material["category"], string> = {
+  Granito:
+    "O granito é uma rocha natural de aspecto granulado, com boa resistência a riscos e ao calor. Por isso é a escolha mais comum para bancadas de cozinha, ilhas e áreas gourmet.",
+  Mármore:
+    "O mármore é uma rocha natural de veios marcantes, valorizada em banheiros, lavabos e revestimentos. É mais sensível a ácidos e manchas que o granito e pede mais cuidado no uso diário.",
+  Quartzo:
+    "O quartzo é uma pedra industrializada, feita de quartzo natural e resina. Tem aparência mais uniforme, baixa porosidade e manutenção simples, e é usado em bancadas de cozinha e banheiro.",
+  Travertino:
+    "O travertino é uma pedra natural de tons quentes e textura com pequenos poros, normalmente preenchidos na preparação da chapa. É usado em revestimentos, lareiras e bancadas de banheiro.",
+  Ônix:
+    "O ônix é uma pedra natural translúcida, de veios suaves, usada em peças de destaque como bancadas de lavabo e painéis, inclusive retroiluminados. É delicado e pede uso cuidadoso.",
+  Nanoglass:
+    "O nanoglass é um material industrializado à base de vidro, de branco intenso e uniforme, com baixa absorção de líquidos. É usado em bancadas, cubas esculpidas e revestimentos.",
+};

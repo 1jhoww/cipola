@@ -22,7 +22,15 @@ npm run build
 - A galeria só recebe imagens concluídas pelo Higgsfield. As rotas e componentes de ambientes em WebGL foram removidos. `/visualizador` redireciona para `/materiais`.
 - As amostras públicas têm resolução variável; mapas físicos medidos de normal/roughness ainda não foram fornecidos. Apenas a pedra usa WebGL, com material físico, carregamento automático e fallback estático.
 
-Copie `.env.example` para `.env.local` e preencha os contatos e a URL real. Importe o repositório na Vercel com preset Next.js e Node 22+. Configure as mesmas variáveis no painel e execute um envio real antes de ativar o formulário. O site permanece `noindex` e o sitemap vazio sem `NEXT_PUBLIC_SITE_URL`.
+Copie `.env.example` para `.env.local` se precisar sobrescrever algum dado. Importe o repositório na Vercel com preset Next.js e Node 22+. Configure as mesmas variáveis no painel e execute um envio real antes de ativar o formulário.
+
+## SEO
+
+- Domínio canônico: `https://www.cipolamarmoraria.com.br` (`site.url`, sobrescrito por `NEXT_PUBLIC_SITE_URL`). Só a produção é indexada: deploys de preview da Vercel e `NEXT_PUBLIC_NOINDEX=1` geram `noindex`, `robots.txt` com `Disallow: /` e sitemap vazio.
+- `src/lib/site.ts`: nome, endereço, telefones, área atendida, horário (`openingHours`), Instagram e `sameAs`. Manter igual ao Perfil da Empresa no Google.
+- `src/lib/seo.ts`: metadados por página (`pageMetadata`) e JSON-LD com `@id` fixos (empresa, site, páginas, trilhas, serviços).
+- `/robots.txt`, `/sitemap.xml` e `/llms.txt` são gerados a partir de `data.ts`, então pedras e obras novas entram sozinhas.
+- Verificação do Search Console e do Bing: `GOOGLE_SITE_VERIFICATION` e `BING_SITE_VERIFICATION` no painel da Vercel, seguidas de novo deploy. GA4 usa `NEXT_PUBLIC_GA_ID` e só carrega após o consentimento de cookies.
 
 O formulário valida no cliente e servidor. Sem `QUOTE_WEBHOOK_URL`, apenas salva um briefing local, sem envio. Com um webhook HTTPS configurado, faz POST JSON autenticado opcionalmente por `QUOTE_WEBHOOK_TOKEN`; exibe confirmação somente após resposta 2xx. Configure no receptor retenção, controle de abuso e entrega ao atendimento. Nenhum formulário é salvo em banco pelo site. Complete a página de privacidade com identificação empresarial, canal responsável e retenção antes de habilitar o envio público.
 

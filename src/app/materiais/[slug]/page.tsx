@@ -3,7 +3,15 @@ import { notFound } from "next/navigation";
 import { preload } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { materials, similarMaterials } from "@/lib/data";
+import {
+  categoryNotes,
+  describeCharacter,
+  materials,
+  similarMaterials,
+  type Material,
+} from "@/lib/data";
+import { pageMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { materialApplicationImages } from "@/lib/material-images";
 import { Breadcrumb } from "@/components/PageIntro";
 import { MaterialObject } from "@/components/materials/MaterialObject";
@@ -15,6 +23,13 @@ import p from "@/components/pages.module.css";
 export function generateStaticParams() {
   return materials.map((material) => ({ slug: material.slug }));
 }
+// "Granito Verde Ubatuba", "Quartzo Calacata", "Nanoglass": the category once.
+const fullName = (m: Material) =>
+  m.name.startsWith(m.category) ? m.name : `${m.category} ${m.name}`;
+const seo = (m: Material) => ({
+  title: `${fullName(m)} para Bancadas | Cipola`,
+  description: `${fullName(m)}, ${describeCharacter(m)}, para bancadas, ilhas e revestimentos sob medida. Veja em 3D e peça orçamento à Cipola, em Cotia e região.`,
+});
 export async function generateMetadata({
   params,
 }: {
@@ -22,18 +37,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const material = materials.find((item) => item.slug === slug);
-  return {
-    title: material?.name || "Material",
-    description: material?.description,
-    alternates: { canonical: `/materiais/${slug}` },
-    openGraph: material
-      ? {
-          title: `${material.name} | Cipola`,
-          description: material.description,
-          images: [material.texture],
-        }
-      : undefined,
-  };
+  if (!material) return {};
+  return pageMetadata({
+    ...seo(material),
+    path: `/materiais/${slug}`,
+    image: {
+      url: material.texture,
+      alt: `Textura de referência de ${fullName(material)}`,
+    },
+  });
 }
 export default async function Page({
   params,
@@ -52,6 +64,21 @@ export default async function Page({
   const similar = similarMaterials(material);
   return (
     <>
+      <JsonLd
+        graph={webPageJsonLd({
+          path: `/materiais/${material.slug}`,
+          name: seo(material).title,
+          description: seo(material).description,
+          image: {
+            url: material.texture,
+            alt: `Textura de referência de ${fullName(material)}`,
+          },
+          breadcrumb: [
+            { name: "Catálogo", path: "/materiais" },
+            { name: material.name, path: `/materiais/${material.slug}` },
+          ],
+        })}
+      />
       <Breadcrumb
         items={[
           { label: "Catálogo", href: "/materiais" },
@@ -83,6 +110,7 @@ export default async function Page({
               <br />
               Converse sobre o uso.
             </h2>
+            <p>{categoryNotes[material.category]}</p>
             <p>
               A escolha final considera o lote, o uso do espaço, a manutenção e
               as condições da obra. Acabamentos e aplicações são avaliados para

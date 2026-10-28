@@ -2,13 +2,20 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { materials, projects } from "@/lib/data";
+import { materials, projects, type Project } from "@/lib/data";
+import { absoluteUrl, ids, pageMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumb } from "@/components/PageIntro";
 import { Gallery } from "@/components/Gallery";
 import s from "@/components/project.module.css";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
+const seo = (p: Project) => ({
+  title: `${p.name} | Projeto Cipola`,
+  description: `${p.description} Obra executada pela Cipola.`,
+  image: { url: p.image, width: p.width, height: p.height, alt: `${p.name}, obra Cipola` },
+});
 export async function generateMetadata({
   params,
 }: {
@@ -16,20 +23,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const p = projects.find((p) => p.slug === slug);
-  return {
-    title: p?.name || "Projeto",
-    description: p?.description,
-    alternates: { canonical: `/projetos/${slug}` },
-    openGraph: p
-      ? {
-          title: p.name,
-          description: p.description,
-          images: [
-            { url: p.image, width: p.width, height: p.height, alt: p.name },
-          ],
-        }
-      : undefined,
-  };
+  if (!p) return {};
+  return pageMetadata({ ...seo(p), path: `/projetos/${slug}` });
 }
 export default async function Page({
   params,
@@ -48,8 +43,34 @@ export default async function Page({
     .slice(0, 3)
     .map(({ o }) => o);
   const quote = `/contato?tipo=${p.category}${stone ? `&material=${stone.slug}` : ""}`;
+  const page = seo(p);
   return (
     <>
+      <JsonLd
+        graph={[
+          ...webPageJsonLd({
+            path: `/projetos/${p.slug}`,
+            name: page.title,
+            description: page.description,
+            image: page.image,
+            breadcrumb: [
+              { name: "Projetos", path: "/projetos" },
+              { name: p.name, path: `/projetos/${p.slug}` },
+            ],
+          }),
+          // The photo is Cipola's own: credit it to the business.
+          {
+            "@type": "ImageObject",
+            contentUrl: absoluteUrl(p.image),
+            width: p.width,
+            height: p.height,
+            caption: page.image.alt,
+            creator: { "@id": ids.business },
+            copyrightHolder: { "@id": ids.business },
+            creditText: "Cipola Mármores e Granitos",
+          },
+        ]}
+      />
       <Breadcrumb
         items={[{ label: "Projetos", href: "/projetos" }, { label: p.name }]}
       />

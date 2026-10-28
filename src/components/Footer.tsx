@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { Brand } from "./Brand";
 import { CookiePreferencesButton } from "./consent/CookieConsent";
-import { developerCredit, mapsLink, navigation, site, whatsappLink } from "@/lib/site";
+import {
+  developerCredit,
+  mapsLink,
+  navigation,
+  openingHoursText,
+  site,
+  whatsappLink,
+} from "@/lib/site";
 import s from "./shell.module.css";
 export function Footer() {
   return (
@@ -34,7 +41,13 @@ export function Footer() {
               {site.address} ↗︎
             </a>
           )}
+          {site.instagram && (
+            <a href={site.instagram.url} target="_blank" rel="noopener noreferrer">
+              Instagram · {site.instagram.handle} ↗︎
+            </a>
+          )}
           {site.serviceArea && <p>{site.serviceArea}</p>}
+          {site.openingHours.length > 0 && <p>Horário: {openingHoursText()}</p>}
         </div>
       </div>
       <div className={s.footerLegalRow}>

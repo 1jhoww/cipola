@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
+import { JsonLd } from "@/components/JsonLd";
 import { QuoteForm } from "@/components/QuoteForm";
 import { materials } from "@/lib/data";
-import { mapsLink, site, whatsappLink } from "@/lib/site";
+import { mapsLink, openingHoursText, site, whatsappLink } from "@/lib/site";
+import { pageMetadata, webPageJsonLd } from "@/lib/seo";
 import { projectTypes } from "@/lib/quote";
 import s from "@/components/form.module.css";
-export const metadata: Metadata = {
-  title: "Contato e orçamento",
-  description:
-    "Conte à Cipola sobre seu projeto. Informe material, local da obra e suas ideias para iniciar uma conversa.",
-  alternates: { canonical: "/contato" },
-};
+const title = "Orçamento de Bancadas em Mármore e Granito | Cipola";
+const description =
+  "Peça orçamento à Cipola pelo WhatsApp, telefone ou formulário. Sede em Vargem Grande Paulista, ao lado de Cotia, e atendimento em toda a região.";
+export const metadata = pageMetadata({ title, description, path: "/contato" });
 export const dynamic = "force-dynamic";
 export default async function Page({
   searchParams,
@@ -23,6 +22,15 @@ export default async function Page({
   const type = projectTypes.includes(q.tipo || "") ? q.tipo : "";
   return (
     <>
+      <JsonLd
+        graph={webPageJsonLd({
+          path: "/contato",
+          name: title,
+          description,
+          type: "ContactPage",
+          breadcrumb: [{ name: "Contato", path: "/contato" }],
+        })}
+      />
       <PageIntro
         eyebrow="CONTATO / SOLICITAR ORÇAMENTO"
         title={"Vamos dar forma\nà sua ideia."}
@@ -58,7 +66,13 @@ export default async function Page({
                 {site.address} ↗︎
               </a>
             )}
-            {site.serviceArea && <p>Atendimento: {site.serviceArea}</p>}
+            {site.instagram && (
+              <a href={site.instagram.url} target="_blank" rel="noopener noreferrer">
+                Instagram · {site.instagram.handle} ↗︎
+              </a>
+            )}
+            {site.serviceArea && <p>{site.serviceArea}</p>}
+            {site.openingHours.length > 0 && <p>Horário: {openingHoursText()}</p>}
           </div>
           <div className={s.asideImage}>
             <Image

@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { legalUpdated } from "@/lib/legal";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import s from "@/components/pages.module.css";
-export const metadata: Metadata = {
-  title: "Política de Privacidade",
+export const metadata = pageMetadata({
+  title: "Política de Privacidade | Cipola Mármores e Granitos",
   description:
     "Como a Cipola trata dados pessoais no site, nos pedidos de orçamento e nas campanhas de anúncios, de acordo com a LGPD.",
-  alternates: { canonical: "/privacidade" },
-};
+  path: "/privacidade",
+});
 export default function Page() {
   const contact = site.privacyEmail ? (
     <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a>

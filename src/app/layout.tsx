@@ -4,32 +4,48 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/consent/CookieConsent";
+import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import {
+  businessJsonLd,
+  defaultImage,
+  indexable,
+  websiteJsonLd,
+} from "@/lib/seo";
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url || "http://localhost:3000"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Cipola — Da natureza ao seu espaço",
+    default: "Marmoraria em Cotia e Região | Mármores e Granitos — Cipola",
     template: "%s | Cipola Mármores e Granitos",
   },
   description: site.description,
+  applicationName: site.name,
   openGraph: {
-    title: site.name,
-    description: site.description,
-    locale: "pt_BR",
     type: "website",
-    images: [
-      {
-        url: "/images/cozinha.jpg",
-        width: 1536,
-        height: 1024,
-        alt: "Ambiente ilustrativo com ilha de pedra natural",
-      },
-    ],
+    locale: "pt_BR",
+    siteName: site.name,
+    images: [defaultImage],
   },
   twitter: { card: "summary_large_image" },
-  robots: site.url
-    ? { index: true, follow: true }
+  robots: indexable
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      }
     : { index: false, follow: false },
+  verification: {
+    ...(site.verification.google && { google: site.verification.google }),
+    ...(site.verification.bing && {
+      other: { "msvalidate.01": site.verification.bing },
+    }),
+  },
 };
 export default function RootLayout({
   children,
@@ -40,6 +56,7 @@ export default function RootLayout({
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>
+        <JsonLd graph={[websiteJsonLd(), businessJsonLd()]} />
         <Header />
         <main id="conteudo">{children}</main>
         <Footer />

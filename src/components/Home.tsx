@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { prefersLightMotion } from "@/lib/device";
 import { materials, projects } from "@/lib/data";
 import { site, whatsappLink } from "@/lib/site";
+import { JsonLd } from "./JsonLd";
 import {
   EdgesVisual,
   InstalledVisual,
@@ -63,8 +64,21 @@ const rooms = [
   },
 ];
 
-// General answers only: nothing here promises prices, deadlines or regions.
+// General answers only: nothing here promises prices or deadlines. Places and
+// history come from site.ts and the about page, as confirmed by Cipola.
 const faqs = [
+  {
+    q: "Onde fica a Cipola e quais regiões vocês atendem?",
+    a: `A Cipola fica na ${site.address}, cidade vizinha a Cotia. ${site.serviceArea}`,
+  },
+  {
+    q: "Há quanto tempo a Cipola trabalha com pedras?",
+    a: "Desde 1992. A empresa foi fundada por Joaquim Cipola, começou com pedras decorativas e passou a trabalhar com mármores e granitos. Hoje é conduzida por seu filho, Rafael (Kaka) Cipola.",
+  },
+  {
+    q: "Vocês fazem bancadas de mármore e granito sob medida?",
+    a: "Sim. Cada bancada é medida, cortada e acabada para o espaço: cozinhas, ilhas, áreas gourmet, banheiros e lavabos. O corte e o acabamento são feitos na estrutura própria da Cipola, e a instalação na obra também é nossa.",
+  },
   {
     q: "Como peço um orçamento?",
     a: "Use o formulário de orçamento e envie medidas, planta ou fotos do espaço, junto com a pedra que você tem em mente. Se ainda não escolheu, a equipe indica opções adequadas ao uso.",
@@ -74,8 +88,16 @@ const faqs = [
     a: "Não. Medidas aproximadas bastam para começar. As dimensões finais, os recortes e os encontros são confirmados antes do corte, conforme as condições da obra.",
   },
   {
+    q: "Como escolher a pedra para a bancada da cozinha?",
+    a: "Comece pelo uso. Granitos resistem bem a calor e riscos; quartzos têm baixa porosidade e mancham pouco, mas pedem apoio para panelas quentes. Mármores e pedras de veios marcantes pedem mais cuidado e costumam valorizar ilhas e áreas de menos uso. Depois vêm a cor, o desenho da chapa e o acabamento, que a equipe ajuda a comparar na chapa disponível.",
+  },
+  {
     q: "Qual a diferença entre granito, mármore e quartzo?",
     a: "O granito tem aspecto granulado e boa resistência a riscos e calor, por isso é comum em cozinhas e áreas gourmet. O mármore tem veios marcantes e é mais sensível a ácidos e manchas, pedindo mais cuidado no uso. O quartzo tem aparência mais uniforme e baixa porosidade.",
+  },
+  {
+    q: "Vocês trabalham com porcelanato?",
+    a: "Sim. Além de granitos, mármores, quartzos, travertinos, ônix e nanoglass, a Cipola trabalha com porcelanato em bancadas e revestimentos. Fale com a equipe sobre formatos e acabamentos para o seu projeto.",
   },
   {
     q: "A pedra que vou receber é igual à das fotos?",
@@ -90,8 +112,8 @@ const faqs = [
     a: "No dia a dia, use pano macio com água e detergente neutro. Evite produtos ácidos, abrasivos ou com cloro, e seque líquidos derramados logo, principalmente em mármores.",
   },
   {
-    q: "Vocês atendem arquitetos e construtoras?",
-    a: "Sim. Traga plantas e detalhes da obra para resolvermos paginação, encontros e acabamentos junto com o projeto.",
+    q: "Vocês atendem arquitetos e projetos personalizados?",
+    a: "Sim. Trabalhamos com arquitetos e construtoras em projetos residenciais personalizados, inclusive de alto padrão. Traga plantas e detalhes da obra para resolvermos paginação, encontros e acabamentos junto com o projeto.",
   },
 ];
 
@@ -303,7 +325,7 @@ export function Home() {
             fill
             priority
             sizes="100vw"
-            alt="Cozinha com ilha de pedra natural — ambiente ilustrativo"
+            alt="Cozinha com ilha em Travertino Nacional — ambiente ilustrativo"
           />
         </div>
         <div className={s.heroShade} />
@@ -332,7 +354,8 @@ export function Home() {
           </h2>
           <p data-fade>
             Pedra natural para qualquer ambiente da casa, desenhada para o seu
-            espaço e instalada por quem cortou.
+            espaço e instalada por quem cortou, em Vargem Grande Paulista,
+            Cotia e região.
           </p>
         </div>
         <div className={s.rooms} data-rooms>
@@ -367,8 +390,8 @@ export function Home() {
             <Words text="A seleção de pedras" />
           </h2>
           <p data-fade>
-            Granitos, mármores, quartzos, travertinos, ônix e nanoglass. Cada
-            chapa tem desenho próprio.
+            Granitos, mármores, quartzos, travertinos, ônix e nanoglass, além de
+            porcelanato. Cada chapa tem desenho próprio.
           </p>
           <Link href="/materiais" className="button" data-fade>
             Ver catálogo completo
@@ -499,19 +522,17 @@ export function Home() {
             </details>
           ))}
         </div>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
+        <JsonLd
+          graph={[
+            {
               "@type": "FAQPage",
               mainEntity: faqs.map((item) => ({
                 "@type": "Question",
                 name: item.q,
                 acceptedAnswer: { "@type": "Answer", text: item.a },
               })),
-            }),
-          }}
+            },
+          ]}
         />
       </section>
 

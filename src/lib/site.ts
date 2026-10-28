@@ -1,8 +1,34 @@
+export type Weekday =
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday"
+  | "Sunday";
+export const weekdayLabels: Record<Weekday, string> = {
+  Monday: "segunda",
+  Tuesday: "terça",
+  Wednesday: "quarta",
+  Thursday: "quinta",
+  Friday: "sexta",
+  Saturday: "sábado",
+  Sunday: "domingo",
+};
 export const site = {
   name: "Cipola Mármores e Granitos",
+  // Other names people search for; the Instagram handle and domain say "Cipola Marmoraria".
+  alternateNames: ["Cipola", "Marmoraria Cipola", "Cipola Marmoraria"],
   description:
-    "A natureza cria. A Cipola transforma. Pedras, possibilidades e execução sob medida para o seu projeto.",
-  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "",
+    "Marmoraria familiar fundada em 1992. Bancadas, ilhas, lavatórios e revestimentos sob medida em mármore, granito, quartzo e porcelanato, com estrutura própria de corte e acabamento. Sede em Vargem Grande Paulista, ao lado de Cotia.",
+  // Canonical origin. The apex domain and plain http redirect here.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://www.cipolamarmoraria.com.br",
+  foundingYear: "1992",
+  founder: "Joaquim Cipola",
+  // "Kaka" is how clients know Rafael.
+  manager: { name: "Rafael Cipola", nickname: "Kaka" },
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "kakacipola@gmail.com",
   // WhatsApp numbers with country code; display keeps the local format.
   // The first one receives the quotes; the others get a "send too" button.
@@ -12,10 +38,55 @@ export const site = {
   ],
   // Landline, for calls.
   phone: { number: "551152868881", display: "(11) 5286-8881" },
+  // Same address as `address`, split for schema.org. Keep both in sync with the
+  // Google Business Profile.
+  postalAddress: {
+    street: "Av. Madagascar, 470",
+    district: "Jardim Margarida",
+    city: "Vargem Grande Paulista",
+    region: "SP",
+    postalCode: "06730-000",
+    country: "BR",
+  },
   address:
-    process.env.NEXT_PUBLIC_ADDRESS ||
     "Av. Madagascar, 470 - Jardim Margarida, Vargem Grande Paulista - SP, 06730-000",
-  serviceArea: process.env.NEXT_PUBLIC_SERVICE_AREA || "",
+  // Point of the storefront at no. 470, checked on Google Maps and Street View.
+  geo: { latitude: -23.617829, longitude: -47.042828 },
+  // Cities confirmed by Cipola, the two priorities first. Granja Viana is part of Cotia.
+  areaServed: [
+    "Vargem Grande Paulista",
+    "Cotia",
+    "Itapevi",
+    "Jandira",
+    "Barueri",
+    "Carapicuíba",
+    "Santana de Parnaíba",
+    "Embu das Artes",
+    "São Roque",
+    "Araçariguama",
+    "São Paulo",
+  ],
+  serviceArea:
+    process.env.NEXT_PUBLIC_SERVICE_AREA ||
+    "Atendemos Vargem Grande Paulista e Cotia, incluindo a Granja Viana, além de Itapevi, Jandira, Barueri, Carapicuíba, Santana de Parnaíba, Embu das Artes, São Roque, Araçariguama e São Paulo.",
+  // Confirmed by Cipola. Closed on Sundays.
+  openingHours: [
+    { days: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "08:00", closes: "18:00" },
+    { days: ["Friday"], opens: "08:00", closes: "17:00" },
+    { days: ["Saturday"], opens: "08:00", closes: "12:00" },
+  ] as { days: Weekday[]; opens: string; closes: string }[],
+  instagram: {
+    url: "https://www.instagram.com/cipolamarmoraria/",
+    handle: "@cipolamarmoraria",
+  },
+  // Other profiles of this same business, for schema.org sameAs. Add the Google
+  // Business Profile once its name, address and phone match the site.
+  sameAs: ["https://www.instagram.com/cipolamarmoraria/"],
+  // Search Console and Bing Webmaster Tools tokens, set in the hosting panel.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || "",
+    bing: process.env.BING_SITE_VERIFICATION || "",
+  },
   // Data controller identification for the privacy policy (LGPD art. 9).
   legalName: process.env.NEXT_PUBLIC_LEGAL_NAME || "Cipola Mármores e Granitos",
   cnpj: process.env.NEXT_PUBLIC_CNPJ || "59.260.871/0001-97",
@@ -67,6 +138,23 @@ export function materialQuoteLink(materialName: string) {
     site.whatsapp[0].number,
     `Olá! Vim pelo site da Cipola e quero um orçamento de um projeto com ${materialName}.`,
   );
+}
+
+// "segunda a quinta, 08:00–18:00 · … · domingo, fechado". Days in each entry are consecutive.
+export function openingHoursText() {
+  if (!site.openingHours.length) return "";
+  const open = site.openingHours.flatMap((h) => h.days);
+  const closed = (Object.keys(weekdayLabels) as Weekday[]).filter(
+    (d) => !open.includes(d),
+  );
+  return [
+    ...site.openingHours.map(({ days, opens, closes }) => {
+      const first = weekdayLabels[days[0]];
+      const last = weekdayLabels[days[days.length - 1]];
+      return `${days.length > 1 ? `${first} a ${last}` : first}, ${opens}–${closes}`;
+    }),
+    ...closed.map((d) => `${weekdayLabels[d]}, fechado`),
+  ].join(" · ");
 }
 
 export function mapsLink(address: string) {

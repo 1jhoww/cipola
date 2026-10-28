@@ -1,56 +1,40 @@
-import type { Metadata } from "next";
 import { About } from "@/components/sobre/About";
-import { site } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata, webPageJsonLd } from "@/lib/seo";
 
+const title = "Nossa História desde 1992 | Cipola Mármores e Granitos";
 const description =
-  "Empresa familiar de mármores e granitos fundada em 1992 por Joaquim Cipola e hoje conduzida por Rafael (Kaka) Cipola, seu filho.";
+  "Fundada em 1992 por Joaquim Cipola e hoje conduzida por Rafael Cipola, a marmoraria une tradição familiar, estrutura própria e acabamento preciso em pedra.";
 
-export const metadata: Metadata = {
-  title: "Sobre a Cipola",
+export const metadata = pageMetadata({
+  title,
   description,
-  alternates: { canonical: "/sobre" },
-  openGraph: {
-    title: "Sobre a Cipola | Cipola Mármores e Granitos",
-    description,
-    url: "/sobre",
+  path: "/sobre",
+  image: {
+    url: "/images/sobre/familia-cipola.jpg",
+    width: 1600,
+    height: 878,
+    alt: "Família Cipola reunida",
   },
-};
-
-const organization = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  legalName: site.legalName,
-  taxID: site.cnpj,
-  email: site.email,
-  telephone: [site.phone, ...site.whatsapp].map((w) => `+${w.number}`),
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Av. Madagascar, 470 - Jardim Margarida",
-    addressLocality: "Vargem Grande Paulista",
-    addressRegion: "SP",
-    postalCode: "06730-000",
-    addressCountry: "BR",
-  },
-  ...(site.url && { url: site.url }),
-  foundingDate: "1992",
-  founder: { "@type": "Person", name: "Joaquim Cipola" },
-  employee: {
-    "@type": "Person",
-    name: "Rafael Cipola",
-    alternateName: "Kaka",
-    jobTitle: "Responsável pela empresa",
-  },
-};
+});
 
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organization).replace(/</g, "\\u003c"),
-        }}
+      <JsonLd
+        graph={webPageJsonLd({
+          path: "/sobre",
+          name: title,
+          description,
+          type: "AboutPage",
+          image: {
+            url: "/images/sobre/familia-cipola.jpg",
+            width: 1600,
+            height: 878,
+            alt: "Família Cipola reunida, com Joaquim Cipola à direita",
+          },
+          breadcrumb: [{ name: "A Cipola", path: "/sobre" }],
+        })}
       />
       <About />
     </>
